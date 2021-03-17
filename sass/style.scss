@@ -1,3 +1,80 @@
+$darkerMainColor: #3A3D46 ;
+$lighterMainColor: #454B5C;
+$goldColor: #C09066;
+$globalTextColor: white;
+
+//font-family: 'Poiret One', cursive; <= Header
+//font-family: 'Raleway', sans-serif; <= Body elements
+
 body {
-    color: black;
+    width: 100vw;
+    height: 100vh;
+    background-color: $lighterMainColor;
+    color: $goldColor;
+    font-family: sans-serif;
+    
+}
+
+header {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+    background-color: $darkerMainColor;
+
+    nav {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: 'Poiret One', cursive;
+        padding: 0 3% 0 5%;
+        box-sizing: border-box;
+        
+        h1 {
+            font-size: 1.7rem;
+            margin-left: 2%;
+        }
+
+        .navIcon {
+            height: 60%;
+        }
+        
+        .burgerIcon{
+            // transform: translate(-50%, -50%);
+            width: 40px;
+        }
+
+        .burgerIcon:before,
+        .burgerIcon:after,
+        .burgerIcon div {
+            background: $goldColor;
+            border-radius : 4px;
+            content: "";
+            display: block;
+            height: 3px;
+            margin: 9px 0;
+            transition: 0.5s;
+        }
+        .burgerIcon:hover:before {
+            transform: translateY(12px) rotate(135deg);
+        }
+        .burgerIcon:hover:after {
+            transform: translateY(-12px) rotate(-135deg);
+        }
+        .burgerIcon:hover div {
+            transform: scale(0);
+        }
+    }
+
+    
+}
+
+main {
+    height : 2000px;
+    margin-top: 10%;
+
 }
