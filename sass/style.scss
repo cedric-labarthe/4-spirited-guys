@@ -21,11 +21,11 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    height: 10%;
+    height: 10vh;
     background-color: $darkerMainColor;
 
     nav {
-        height: 100%;
+        height: 10vh;
         width: 100%;
         display: flex;
         justify-content: space-between;
@@ -75,6 +75,6 @@ header {
 
 main {
     height : 2000px;
-    margin-top: 10%;
+    margin-top: 10vh;
 
 }
