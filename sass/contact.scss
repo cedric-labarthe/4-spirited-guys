@@ -1,0 +1,45 @@
+.contact-title {
+    font-size: 1.4rem;
+    text-align: center;
+    padding-top: 70px;
+    font-weight: 400;
+}
+.contact-p {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 1.2rem;
+}
+.ct-form {
+    margin: 40px 50px;
+    
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+
+        .ct-label {
+            padding: 40px 0 12px  0;
+            font-size: 1rem;
+        }
+        .ct-input {
+            padding: 5px;
+            border: solid 1px #C09066;
+            height: 20px;
+            background-color: antiquewhite;
+        }
+        .ct-input-txt {
+            height: 80px;
+            resize: none;
+        }
+        .ct-button {
+            background-color: #3A3D46;
+            color: #C09066;
+            cursor: pointer;
+            font-size: 1.2rem;
+            border-radius: 10px;
+            //width: 150px;
+            margin: 35px auto;
+            padding: 10px 20px;
+            border: solid 1px;
+        }
+    }
+}
