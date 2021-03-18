@@ -20,7 +20,7 @@ handleScroll = (e) => {
     if(scrollPosition > 0 && !topVisible) {
         topScrollInfo.classList.add("infoVisible");
         topVisible = true;
-    } else if (scrollPosition === 0 && topVisible) {
+    } else if (scrollPosition <= 0 && topVisible) {
         topScrollInfo.classList.remove("infoVisible");
         topVisible = false;
     }
@@ -28,7 +28,7 @@ handleScroll = (e) => {
     if(scrollPosition < 100 && !bottomVisible) {
         bottomScrollInfo.classList.add("infoVisible")
         bottomVisible = true;
-    } else if (scrollPosition === 100 && bottomVisible) {
+    } else if (scrollPosition >= 100 && bottomVisible) {
         bottomScrollInfo.classList.remove("infoVisible")
         bottomVisible = false;
     }

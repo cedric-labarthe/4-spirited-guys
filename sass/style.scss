@@ -12,11 +12,11 @@ body {
     color: $goldColor;
     font-family: sans-serif;
     line-height: 3vh;
+}::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
 }
 
-#element::-webkit-scrollbar {
-    display: none;
-}
 
 .golden {
     color: $goldColor;
@@ -144,5 +144,8 @@ main {
             opacity: 100;
         }
     }
+}::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
 }
 
