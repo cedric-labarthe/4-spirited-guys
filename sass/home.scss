@@ -1,0 +1,76 @@
+$darkerMainColor: #3A3D46 ;
+$lighterMainColor: #454B5C;
+$goldColor: #C09066;
+$globalTextColor: antiquewhite;
+
+main {
+    margin-top: 10vh;
+    margin-bottom: 5vh;
+    color: $globalTextColor;
+    text-align: center;
+
+    h2 {
+        margin: 2vh 0 2vh 0;
+        font-family: 'Poiret One', cursive;
+        font-size: 1.5rem;
+        color: $goldColor;
+    }
+
+    .homeTextBox {
+        padding: 0 10px 0 10px;
+        margin: 6vh 0 6vh 0;
+
+        h2 {
+            margin: 4vh 0 4vh 0;
+        }
+    }
+
+    .mainBanner {
+        height: 25vh;
+        background-image: url("/images/bar.jpeg");
+        background-size: cover;
+        background-position-y: -37px;
+    }
+
+    #homeCaroussel {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+
+        .carousselImg {
+            width: 25%;
+            height: 30vh;
+            background-color: grey;
+        }
+    }
+
+    .bottomPageLink {
+        margin-bottom: 5vh;
+    }
+
+    .scrollingInfo {
+        height: 10vh;
+        width: 100%;
+        position: fixed;
+        left: 0;
+        opacity: 0;
+        transition: opacity 0.5s;
+
+        &#topInfo {
+            top: 10vh;
+            background: linear-gradient(0deg, rgba(69,75,92,0) 0%, rgba(0,0,0,1) 100%);
+        }
+    
+        &#bottomInfo {
+            bottom: 0;
+            background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(69,75,92,0) 100%);
+        }
+
+        &.infoVisible {
+            opacity: 100;
+        }
+    }
+}::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
