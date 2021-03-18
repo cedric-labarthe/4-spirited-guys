@@ -1,7 +1,9 @@
 let topVisible = false;
 let bottomVisible = true;
 
-onload = () => {
+
+
+init = () => {
     document.addEventListener("scroll", handleScroll);
     console.log("onload home")
     // setScrollInfoVisibility();
@@ -39,10 +41,6 @@ handleScroll = (e) => {
     // if(scrollPosition === 0) {
     //     topScrollInfo.style.visibility = "hidden"
     // }
-
-
-
-
 }
 
 getScrollPercent = () => {
@@ -52,3 +50,5 @@ getScrollPercent = () => {
         sh = 'scrollHeight';
     return (h[st]||b[st]) / ((h[sh]||b[sh]) - h.clientHeight) * 100;
 }
+
+window.addEventListener('load', init);

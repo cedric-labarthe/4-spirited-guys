@@ -2,7 +2,8 @@ let menu = null;
 let burger = null;
 let windowWidth = null;
 
-onload = () => {
+
+init = () => {
   console.log("onload header")
 
     windowWidth = window.innerWidth;
@@ -29,3 +30,5 @@ function toggleOpen() {
 function highLight() {
   if (windowWidth > 414) burger.classList.toggle('highLight');
 }
+
+window.addEventListener('load', init);

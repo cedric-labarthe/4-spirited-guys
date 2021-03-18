@@ -4,7 +4,7 @@ $goldColor: #C09066;
 $globalTextColor: antiquewhite;
 
 main {
-    margin-top: 10vh;
+    margin-top: 15vh;
     margin-bottom: 5vh;
     color: $globalTextColor;
     text-align: center;
@@ -58,12 +58,12 @@ main {
 
         &#topInfo {
             top: 10vh;
-            background: linear-gradient(0deg, rgba(69,75,92,0) 0%, rgba(0,0,0,1) 100%);
+            background: linear-gradient(0deg, rgba(69,75,92,0) 0%, $darkerMainColor 100%);
         }
     
         &#bottomInfo {
             bottom: 0;
-            background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(69,75,92,0) 100%);
+            background: linear-gradient(0deg, $darkerMainColor 0%, rgba(69,75,92,0) 100%);
         }
 
         &.infoVisible {
