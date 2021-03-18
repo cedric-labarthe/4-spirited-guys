@@ -1,0 +1,47 @@
+$darkerMainColor: #3a3d46;
+$lighterMainColor: #454b5c;
+$goldColor: #c09066;
+$globalTextColor: antiquewhite;
+
+main {
+  margin-top: 10vh;
+  margin-bottom: 5vh;
+  color: $globalTextColor;
+  text-align: center;
+
+  .selection {
+    padding-top: 2vh;
+
+    &__title {
+      margin: 2vh 0 2vh 0;
+      font-family: 'Poiret One', cursive;
+      font-size: 1.5rem;
+      color: $goldColor;
+    }
+
+    &__img {
+      height: 30vh;
+    }
+  }
+
+  .more-info-popup {
+    //display: none;
+    border: 1px solid black;
+    background: $lighterMainColor;
+    width: 80vw;
+    height: 80vh;
+    position: fixed;
+    left: 50%;
+    top: 55%;
+    transform: translate(-50%, -50%);
+
+    &__title {
+      padding: 5%;
+    }
+
+    &__img {
+      height: 60vh;
+      background-color: grey;
+    }
+  }
+}
