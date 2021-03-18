@@ -1,7 +1,7 @@
 $darkerMainColor: #3A3D46 ;
 $lighterMainColor: #454B5C;
 $goldColor: #C09066;
-$globalTextColor: white;
+$globalTextColor: antiquewhite;
 
 //font-family: 'Poiret One', cursive; <= Header
 //font-family: 'Raleway', sans-serif; <= Body elements
@@ -50,35 +50,92 @@ header {
         }
         
         .burgerIcon{
-            // transform: translate(-50%, -50%);
             width: 40px;
-        }
+            cursor: pointer;
+        
 
-        .burgerIcon:before,
-        .burgerIcon:after,
-        .burgerIcon div {
-            background: $goldColor;
-            border-radius : 4px;
-            content: "";
-            display: block;
-            height: 3px;
-            margin: 9px 0;
-            transition: 0.5s;
+            &::before,
+            &::after,
+            div {
+                background: $goldColor;
+                border-radius : 4px;
+                content: "";
+                display: block;
+                height: 3px;
+                margin: 9px 0;
+                transition: 0.5s;
+            }
+        
+            &.active::before {
+                transform: translateY(12px) rotate(135deg);
+            }
+            
+        
+            &.active::after {
+                transform: translateY(-12px) rotate(-135deg);
+            }
+            &.active div, &.active div {
+                transform: scale(0);
+            }
+        }    
+    }
+}
+
+.menuContainer {
+    position: fixed;
+    top: 10vh;
+    left: -100%;
+    background-color: rgba(31, 31, 31, 0.801);
+    width: 100%;
+    height: 90vh;
+    transition: 0.4s ease-in-out;
+}
+
+.menu {
+    height : 60vh;
+    width : 85vw;
+    background-color: $darkerMainColor;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .linkContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        padding: 10% 0;
+        box-sizing: border-box;
+    }
+    a {
+        text-decoration: none;
+        color : $goldColor;
+        padding-left : 20px;
+        font-size: 1.1rem;
+        
+        &:hover {
+            color : $globalTextColor;
+
         }
-        .burgerIcon:hover:before {
-            transform: translateY(12px) rotate(135deg);
-        }
-        .burgerIcon:hover:after {
-            transform: translateY(-12px) rotate(-135deg);
-        }
-        .burgerIcon:hover div {
-            transform: scale(0);
-        }
-    }    
+    }
+
+    #menuImg {
+        width: 30%;
+        height: 70%;
+        margin-right: 20px;
+        background-image: url('https://loremflickr.com/320/240/barrel,alcohol');
+        background-position: center;
+        background-size: cover;
+    }
+}
+
+.open {
+    left: 0;
 }
 
 main {
-    margin-top: 15vh;
+    margin-top: 10vh;
     margin-bottom: 5vh;
     color: $globalTextColor;
     text-align: center;
