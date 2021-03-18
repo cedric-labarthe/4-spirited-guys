@@ -8,3 +8,6 @@ https://docs.google.com/document/d/1rF_4PEVr5U_eZe80Wlb-VKaRpqKWYns3-vOhxge577E/
 
 Github Link
 https://github.com/Poppe-A/4-spirited-guys
+
+Trello Link (Kanban)
+https://trello.com/b/8d9uEJJz/4sg
