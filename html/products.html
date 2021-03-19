@@ -15,6 +15,7 @@
     />
 
     <script src="../scripts/header.js"></script>
+    <script src="../scripts/products.js"></script>
   </head>
 
   <body>
@@ -49,6 +50,7 @@
               src="https://www.whisky.fr/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/5/m58904_1.jpg"
               alt="first bottle selection"
               class="selection__img"
+              id="test1"
             />
           </div>
         </section>
@@ -60,6 +62,7 @@
               src="https://www.whisky.fr/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/5/m58046.jpg"
               alt="a bottle of rum"
               class="selection__img"
+              id="test2"
             />
           </div>
         </section>
@@ -71,6 +74,7 @@
               src="https://www.whisky.fr/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/1/m13073a_2.jpg"
               alt="a bottle of whisky"
               class="selection__img"
+              id="test3"
             />
           </div>
         </section>
@@ -82,18 +86,22 @@
               src="https://www.whisky.fr/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/5/m58238.jpg"
               alt="a bottle of beer"
               class="selection__img"
+              id="test4"
             />
           </div>
         </section>
 
-        <div class="more-info-popup">
-          <h3 class="more-info-popup__title">Product name</h3>
-          <img
-            class="more-info-popup__img"
-            src="https://www.whisky.fr/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/5/m58238.jpg"
-            alt="product image"
-          />
-          <p class="more-info-popup__desc">Blabla about the product</p>
+        <div class="more-info-container" id="popInContainer">
+          <div class="more-info-popup">
+            <h3 class="more-info-popup__title">Product name</h3>
+            <img
+              class="more-info-popup__img"
+              id="popup__img"
+              src="https://www.whisky.fr/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/5/m58238.jpg"
+              alt="product image"
+            />
+            <p class="more-info-popup__desc">Blabla about the product</p>
+          </div>
         </div>
       </div>
     </main>
