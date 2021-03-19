@@ -1,23 +1,23 @@
 .contact-title {
     font-size: 1.4rem;
     text-align: center;
-    padding-top: 70px;
+    padding-top: 115px;
     font-weight: 400;
 }
 .contact-p {
     text-align: center;
-    padding-top: 20px;
+    padding-top: 15px;
     font-size: 1.2rem;
 }
 .ct-form {
-    margin: 40px 50px;
+    margin: 25px 50px;
     
     .contact-form {
         display: flex;
         flex-direction: column;
 
         .ct-label {
-            padding: 40px 0 12px  0;
+            padding: 30px 0 12px  0;
             font-size: 1rem;
         }
         .ct-input {
@@ -25,6 +25,9 @@
             border: solid 1px #C09066;
             height: 20px;
             background-color: antiquewhite;
+            color: #454B5C;
+            font-size: 1.3rem;
+            border-radius: 0.5rem;
         }
         .ct-input-txt {
             height: 80px;
@@ -36,7 +39,6 @@
             cursor: pointer;
             font-size: 1.2rem;
             border-radius: 10px;
-            //width: 150px;
             margin: 35px auto;
             padding: 10px 20px;
             border: solid 1px;
