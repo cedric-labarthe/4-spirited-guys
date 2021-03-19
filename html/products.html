@@ -4,15 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>4SpiritedGuys</title>
+    <link rel="stylesheet" href="../swiper.css" />
+
     <link rel="stylesheet" href="../dist/reset.css" type="text/css" />
     <link rel="stylesheet" href="../dist/style.css" type="text/css" />
     <link rel="stylesheet" href="../dist/products.css" type="text/css" />
-
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Raleway&display=swap"
       rel="stylesheet"
     />
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
     <script src="../scripts/header.js"></script>
     <script src="../scripts/products.js"></script>
@@ -43,65 +47,84 @@
       </div>
 
       <div id="slideMenu">
-        <section class="selection">
-          <h2 class="selection__title">Our monthly selection</h2>
-          <div class="selection__slider">
-            <img
-              src="https://www.whisky.fr/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/5/m58904_1.jpg"
-              alt="first bottle selection"
-              class="selection__img"
-              id="test1"
-            />
+        <section class="product">
+          <h2 class="product__title">- Our monthly selection -</h2>
+          <div class="swiper-container product__slider--selection">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+              <img
+                class="swiper-slide product__img"
+                src="https://www.whisky.fr/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/5/m58904_1.jpg"
+                alt="monthly selected bottle one"
+              />
+              <img
+                class="swiper-slide product__img"
+                src="https://www.whisky.fr/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/5/m58046.jpg"
+                alt="monthly selected bottle two"
+              />
+              <img
+                class="swiper-slide product__img"
+                id="test2"
+                src="https://cdn.discordapp.com/attachments/816294408806203412/821494009175605258/3._nikola-jovanovic-QGPmWrclELg-unsplash_reworked.jpg"
+                alt="monthly selected bottle three"
+              />
+              <img
+                class="swiper-slide product__img"
+                src="https://cdn.discordapp.com/attachments/816294408806203412/821494123060133948/4._adam-wilson-6UIonphZA5o-unsplash.jpg"
+                alt="monthly selected bottle four"
+              />
+            </div>
+            <div class="swiper-pagination"></div>
           </div>
         </section>
 
-        <section class="selection">
-          <h2 class="selection__title">Our rums selection</h2>
-          <div class="selection__slider">
+        <section class="product">
+          <h2 class="product__title">- Our rums selection -</h2>
+          <div class="product__slider">
             <img
               src="https://www.whisky.fr/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/5/m58046.jpg"
               alt="a bottle of rum"
-              class="selection__img"
+              class="product__img"
               id="test2"
             />
           </div>
         </section>
 
-        <section class="selection">
-          <h2 class="selection__title">Our whiskies selection</h2>
-          <div class="selection__slider">
+        <section class="product">
+          <h2 class="product__title">- Our whiskies selection -</h2>
+          <div class="product__slider">
             <img
               src="https://www.whisky.fr/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/1/m13073a_2.jpg"
               alt="a bottle of whisky"
-              class="selection__img"
+              class="product__img"
               id="test3"
             />
           </div>
         </section>
 
-        <section class="selection">
-          <h2 class="selection__title">Our beers selection</h2>
-          <div class="selection__slider">
+        <section class="product">
+          <h2 class="product__title">- Our beers selection -</h2>
+          <div class="product__slider">
             <img
               src="https://www.whisky.fr/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/5/m58238.jpg"
               alt="a bottle of beer"
-              class="selection__img"
+              class="product__img"
               id="test4"
             />
           </div>
         </section>
-
-        <div class="more-info-container" id="popInContainer">
-          <div class="more-info-popup">
-            <h3 class="more-info-popup__title">Product name</h3>
-            <img
-              class="more-info-popup__img"
-              id="popup__img"
-              src="https://www.whisky.fr/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/5/m58238.jpg"
-              alt="product image"
-            />
-            <p class="more-info-popup__desc">Blabla about the product</p>
-          </div>
+      </div>
+      <div class="more-info-container" id="popInContainer">
+        <div class="more-info-popin">
+          <h2 class="more-info-popin__title">Product name</h2>
+          <img
+            class="more-info-popin__img"
+            id="popin__img"
+            src="https://www.whisky.fr/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/5/m58238.jpg"
+            alt="product image"
+          />
+          <p class="more-info-popin__desc">Blabla about the product</p>
         </div>
       </div>
     </main>
