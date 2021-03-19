@@ -3,11 +3,13 @@ $lighterMainColor: #454B5C;
 $goldColor: #C09066;
 $globalTextColor: antiquewhite;
 
+
 main {
   margin-top: 15vh;
   margin-bottom: 5vh;
   color: $globalTextColor;
   text-align: center;
+
 
   h2 {
     margin: 2vh 0 2vh 0;
@@ -33,6 +35,29 @@ main {
 
   }
 
+  .popinOff {
+    //display: none;
+    visibility: hidden;
+  }
+
+  .popinOffEffect {
+    animation : 0.2s fadeout;
+  }
+
+  @keyframes fadeout {
+    from{opacity : 1;}
+    to{opacity : 0;}
+  }
+
+  .popinOnEffect {
+    animation : 0.4s fadein;
+  }
+
+  @keyframes fadein {
+    from{opacity : 0;}
+    to{opacity : 1;}
+  }
+
   .resaPopup {
     position: fixed;
     top: 10vh;
@@ -44,22 +69,29 @@ main {
     justify-content: center;
     align-items: center;
 
+
     .resaForm {
-      width: 85%;
+      width: 80%;
       height: 70vh;
       background-color: $lighterMainColor; 
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      color: $globalTextColor;
+      border-radius: 0.5rem;
 
       input{
-        margin: 2vh;
         height: 5vh;
-        width: 80%;
         font-size: 1.5rem;
       }
 
       #date, #lastName, #phone, #email {
         display: block;
-        margin-left: auto;
-        margin-right: auto;
+        width: 80%;
+        border-radius: 0.5rem;
+        background-color: $globalTextColor;
+        color: $darkerMainColor;
       }
 
       #date {
@@ -70,35 +102,45 @@ main {
       .howManyContainer {
         display: flex;
         justify-content: space-between;
+        width: 80%;
       }
 
       .hourContainer {
         display: flex;
         justify-content: space-between;
+        width: 80%;
         
       }
 
       label {
         height: 5vh;
-        margin: 2vh;
         display: flex;
         align-items: center;
-      }
-      #howMany, #hour{
-        height: 5vh;
-        margin: 2vh;
+        font-size: 1.2rem;
+
       }
 
-      #btn-form {
+      #howMany, #hour{
+        height: 5vh;
+        width: 40%;
+        font-size: 1.2rem;
+        background-color: $globalTextColor;
+        color:$darkerMainColor;
+      }
+
+      #btn-form, #btn-ok {
         background-color: #3A3D46;
         color: #C09066;
         cursor: pointer;
         font-size: 1.2rem;
         border-radius: 10px;
-        //width: 150px;
-        margin: 35px auto;
         padding: 10px 20px;
         border: solid 1px;
+        
+      }
+
+      .resaValHidden {
+        display: none;
       }
 
     }
@@ -106,6 +148,5 @@ main {
   }
 
 }
-
 
 

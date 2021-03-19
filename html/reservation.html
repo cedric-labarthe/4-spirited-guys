@@ -46,7 +46,7 @@
         Calendar
       </div>
     </div>
-    <div class="resaPopup">
+    <div class="resaPopup popinOff popinOffEffect">
       <form class="resaForm" action="#">
         <input type="text" name="date" id="date" disabled placeholder="DD-MM-YYYY">
         <div class="howManyContainer">
@@ -88,6 +88,13 @@
         <input type="tel" name="phone" id="phone" placeholder="+33 6 12 34 56 78">
         <input type="email" name="email" id="email" placeholder="bestclient@4sg.com">
         <button id="btn-form">ENVOYER</button>
+        <p class="resaValHidden" id="val-p1">
+          Your reservation has been validated !
+        </p>
+        <p class="resaValHidden" id="val-p2">
+          We've sent you a recapitulative by mail ;)
+        </p>
+        <button class="resaValHidden" id="val-ok">OK</button>
       </form>
     </div>
   </main>
