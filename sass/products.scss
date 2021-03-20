@@ -1,0 +1,107 @@
+$darkerMainColor: #3a3d46;
+$lighterMainColor: #454b5c;
+$goldColor: #c09066;
+$globalTextColor: antiquewhite;
+
+main {
+  margin-top: 10vh;
+  margin-bottom: 5vh;
+  color: $globalTextColor;
+  text-align: center;
+
+  .product {
+    padding-top: 2vh;
+
+    &__img {
+      // Pour les placeholders (remplacer par les slides)
+      height: 40vh;
+    }
+
+    &__title {
+      margin: 2vh 0 2vh 0;
+      font-family: 'Poiret One', cursive;
+      font-size: 1.5rem;
+      color: $goldColor;
+    }
+
+    .swiper-container {
+      height: 300px;
+      padding: 3vh 0 5vh 0;
+      z-index: 0; // TODO Modifier le z-index du menu burger
+
+      .swiper-slide {
+        height: auto;
+        width: 60%;
+      }
+
+      .swiper-pagination {
+        bottom: 2%;
+        &-bullet {
+          border: 0.5px solid #3a3d46;
+          background: $goldColor;
+        }
+      }
+    }
+  }
+
+  .more-info-container {
+    visibility: hidden;
+    opacity: 0;
+    position: fixed;
+    top: 10vh;
+    background-color: rgba(31, 31, 31, 0.801);
+    width: 100%;
+    height: 90vh;
+    z-index: 5;
+
+    &.popin-open {
+      animation: fadein 0.3s linear forwards;
+    }
+    &.popin-closed {
+      animation: fadeout 0.3s linear forwards;
+    }
+  }
+
+  .more-info-popin {
+    border: 1px solid black;
+    background: $lighterMainColor;
+    width: 80vw;
+    height: 80vh;
+    position: fixed;
+    left: 50%;
+    top: 55%;
+    transform: translate(-50%, -50%);
+
+    &__title {
+      padding: 5%;
+      color: $goldColor;
+    }
+
+    &__img {
+      height: 60vh;
+      padding: 2px;
+      max-width: 95%;
+    }
+  }
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
