@@ -95,6 +95,10 @@ main {
       }
 
       #date {
+        background-color: $lighterMainColor;
+      }
+
+      #date {
         width: 60%;
         text-align: center;
       }
@@ -128,7 +132,7 @@ main {
         color:$darkerMainColor;
       }
 
-      #btn-form, #btn-ok {
+      #btn-form, #val-ok {
         background-color: #3A3D46;
         color: #C09066;
         cursor: pointer;
@@ -136,11 +140,17 @@ main {
         border-radius: 10px;
         padding: 10px 20px;
         border: solid 1px;
+        text-decoration: none;
         
       }
 
       .resaValHidden {
         display: none;
+      }
+
+      #val-p1, #val-p2 {
+        margin : 5vh 0;
+        text-align: center;
       }
 
     }

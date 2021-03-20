@@ -11,7 +11,10 @@ function init() {
     const inputPhone = document.querySelector("#phone")
     const inputEmail = document.querySelector("#email")
     const buttonval = document.querySelector("#btn-form")
-    //up : élément à cacher lors de l'envoi + down : afficher element
+    const labels = document.querySelectorAll("label")
+    const howManyContainer = document.querySelector(".howManyContainer")
+    const hourContainer = document.querySelector(".hourContainer")
+
     const valp1 = document.querySelector("#val-p1")
     const valp2 = document.querySelector("#val-p2")
     const valok = document.querySelector("#val-ok")
@@ -19,8 +22,16 @@ function init() {
     calendar.addEventListener('click', togglePopin);
 
     function togglePopin() {
+        popin.classList.toggle("popinOff")
+        popin.classList.toggle("popinOffEffect")
+        popin.classList.toggle("popinOnEffect")
 
-        popin.classList.toggle("popinOn")
+        if (popin.classList.contains("popinOff")) {
+            setTimeout(() => {
+                popin.classList.toggle("popinOff")
+            }, 190);
+            popin.classList.toggle("popinOff")
+        }
 
     }
 
@@ -45,13 +56,30 @@ function init() {
     buttonval.addEventListener('click', hideForm)
 
     function hideForm() {
-        inputDate.classList.toggle("resaValHidden");
-        inputHowMany.classList.toggle("resaValHidden");
-        inputHour.classList.toggle("resaValHidden");
-        inputLastName.classList.toggle("resaValHidden");
-        inputPhone.classList.toggle("resaValHidden");
-        inputEmail.classList.toggle("resaValHidden");
-        buttonval.classList.toggle("resaValHidden");
+        if (!inputLastName.value || !inputPhone.value || !inputEmail.value ) {
+            alert("You must fill all the fields.")
+        } else {
+
+        inputDate.remove();
+        inputHowMany.remove();
+        inputHour.remove();
+        inputLastName.remove();
+        inputPhone.remove();
+        inputEmail.remove();
+        buttonval.remove();
+        labels.forEach(label => label.remove());
+        howManyContainer.remove();
+        hourContainer.remove();
+        valp1.classList.toggle("resaValHidden")
+        valp2.classList.toggle("resaValHidden")
+        valok.classList.toggle("resaValHidden")
+        }
+    }
+
+    valok.addEventListener('click', reloadPage)
+
+    function reloadPage() {
+        window.close();
     }
 
 }
