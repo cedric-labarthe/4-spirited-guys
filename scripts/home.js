@@ -10,6 +10,7 @@ init = () => {
     swiper = new Swiper('.swiper-container', {
         slidesPerView: 2,
         spaceBetween: 30,
+        centeredSlides: true,
         loop: true,
         pagination: {
           el: '.swiper-pagination',
@@ -47,10 +48,10 @@ handleScroll = (e) => {
         bottomVisible = true;
     } else if (scrollPosition >= 100 && bottomVisible) {
         bottomScrollInfo.classList.remove("infoVisible");
+        bottomVisible = false;
         setTimeout(() => {
             bottomScrollInfo.style.visibility = "hidden";
         }, 500);
-        bottomVisible = false;
     }
     // if(scrollPosition === 100) {
     //     bottomScrollInfo.style.visibility = "hidden"

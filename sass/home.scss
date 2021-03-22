@@ -8,8 +8,6 @@ main {
     margin-bottom: 1vh;
     color: $globalTextColor;
     text-align: center;
-    --swiper-theme-color: #C09066;
-
 
     .swiper-container {
         width: 100%;
@@ -22,21 +20,16 @@ main {
         text-align: center;
         font-size: 18px;
         background: #fff;
-      
-        /* Center slide text vertically */
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        -webkit-justify-content: center;
-        justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        -webkit-align-items: center;
-        align-items: center;
+        background-size: cover;
+        background-position: center;
       }
+
+      .swiper-pagination-bullet {
+          background-color: antiquewhite;
+      }
+
+    --swiper-theme-color: #C09066;
+
 
     h2 {
         margin: 2vh 0 2vh 0;
@@ -72,6 +65,7 @@ main {
         left: 0;
         opacity: 0;
         transition: opacity 0.5s;
+        z-index: 9;
 
         &#topInfo {
             top: 10vh;
@@ -90,4 +84,33 @@ main {
 }::-webkit-scrollbar {
     width: 0px;
     background: transparent; /* make scrollbar transparent */
+}
+
+
+@media screen and (min-width: 500px) {
+    body {
+        line-height: 5vh;
+    }
+
+   main {
+        margin-top: 20vh;
+
+        .mainBanner {
+            height: 50vh;
+            background-position-y: -100px;
+            margin: 9vh 0;
+        }
+
+        h2 {
+            margin: 10vh 0 10vh 0;
+        }
+
+        .swiper-container {
+            margin: 5vh 0 12vh 0;
+        }
+
+        .bottomPageLink {
+            margin-bottom: 15vh;
+        }
+    }
 }
