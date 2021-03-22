@@ -1,5 +1,5 @@
 // Initialisation des variables
-let popIn = null;
+let popInContainer = null;
 let productArray = [];
 let productTarget = null;
 let popInImage = null;
@@ -8,6 +8,7 @@ let popInTitle = null;
 let productObj = {};
 let swiperEl = null;
 let mainContainer = null;
+let moreInfoBtn = null;
 
 // Recuperation du JSON des produits
 fetch('../products.json').then((response) =>
@@ -17,6 +18,8 @@ fetch('../products.json').then((response) =>
 );
 
 init = () => {
+  document.getElementById('loading').remove();
+
   mainContainer = document.getElementById('slides-main-container');
 
   // Creation des strucures html des carousels
@@ -26,6 +29,13 @@ init = () => {
   swiperCreate('wine');
   swiperCreate('tapas');
 
+  // Initialisation des affichages carousels
+  monthlySwiper.init();
+  whiskySwiper.init();
+  rhumSwiper.init();
+  wineSwiper.init();
+  tapasSwiper.init();
+
   popInCreate();
 
   popInImage = document.getElementById('popin__img');
@@ -33,45 +43,61 @@ init = () => {
   popInDesc = document.getElementsByClassName('more-info-popin__desc')[0];
 
   // Récuperation des images des carousels + liens avec le produit selectionné
+  moreInfoBtn = document.getElementsByClassName('product__btn');
   productArray = document.getElementsByClassName('product__img');
   for (let i = 0; i < productArray.length; i++) {
     productArray[i].addEventListener('click', toggleOpenPopin);
     productArray[i].addEventListener('click', (e) => getProductInfo(e));
+    moreInfoBtn[i].addEventListener('click', toggleOpenPopin);
+    moreInfoBtn[i].addEventListener('click', (e) => getProductInfo(e));
   }
 
   burger = document.querySelector('#burgerIcon');
   burger.addEventListener('click', clickOnBurger);
 
-  // Initialisation des affichages carousels
-  monthlySwiper.init();
-  whiskySwiper.init();
-  rhumSwiper.init();
-  wineSwiper.init();
-  tapasSwiper.init();
+  window.onscroll = handleSwiperWithScroll;
+  let initAutoplay = ['whisky', 'rhum', 'wine', 'tapas'].forEach((x) => startStopSlider(x, 'stop'));
+};
+
+handleSwiperWithScroll = () => {
+  let centerX = document.documentElement.clientWidth / 2;
+  let centerY = document.documentElement.clientHeight / 2;
+  let centredClass = document.elementFromPoint(centerX, centerY).classList[0];
+  chooseTheSliders(centredClass);
+};
+
+chooseTheSliders = (centredClass) => {
+  let classArray = ['monthly', 'whisky', 'rhum', 'wine', 'tapas'];
+  let filtredArray = classArray.filter((x) => x !== centredClass);
+  filtredArray.forEach((x) => startStopSlider(x, 'stop'));
+  startStopSlider(centredClass, 'start');
 };
 
 // Création de l'élement + listener
 popInCreate = () => {
-  popIn = document.getElementById('popInContainer');
-  popIn.addEventListener('click', (evt) => {
+  popInContainer = document.getElementById('popInContainer');
+  popInContainer.addEventListener('click', (evt) => {
     clickOnPopInContainer(evt);
   });
 };
 
 // Récupere les infos de l'élement clické
 getProductInfo = (e) => {
-  sectionSelect = productObj[e.target.className];
-  id = sectionSelect.map((p) => p.id).indexOf(parseInt(e.target.id));
-  console.log(id);
-  popInImage.setAttribute('src', e.target.getAttribute('src'));
-  popInDesc.innerText = sectionSelect[id].description;
-  popInTitle.innerText = sectionSelect[id].title;
+  sectionSelect = productObj[e.target.classList[0]];
+  let index = sectionSelect.map((p) => p.id).indexOf(parseInt(e.target.classList[1]));
+  popInContainer.classList.add(e.target.classList[0]);
+  popInImage.setAttribute('src', sectionSelect[index].img);
+  popInDesc.innerText = sectionSelect[index].description;
+  popInTitle.innerText = sectionSelect[index].title;
+  startStopSlider(e.target.classList[0], 'stop');
 };
 
-// Si l'on click sur le container => ferme la popIn
+// Si l'on click sur le container => ferme la popIn et retire une class
 clickOnPopInContainer = (e) => {
   if (e.target === e.currentTarget) {
     toggleOpenPopin();
+    startStopSlider(e.target.classList[1], 'start');
+    e.target.classList.remove(e.target.classList[1]);
   }
 };
 
@@ -82,11 +108,14 @@ clickOnBurger = () => {
 };
 
 toggleOpenPopin = () => {
-  if (!popIn.className.includes('popin-open') && !popIn.className.includes('popin-closed')) {
-    popIn.classList.toggle('popin-open');
+  if (
+    !popInContainer.className.includes('popin-open') &&
+    !popInContainer.className.includes('popin-closed')
+  ) {
+    popInContainer.classList.toggle('popin-open');
   } else {
-    popIn.classList.toggle('popin-open');
-    popIn.classList.toggle('popin-closed');
+    popInContainer.classList.toggle('popin-open');
+    popInContainer.classList.toggle('popin-closed');
   }
 };
 
@@ -98,9 +127,11 @@ window.addEventListener('load', init);
 swiperCreate = (swiperName) => {
   let section = document.createElement('section');
   section.classList.add(swiperName, 'product');
+  section.id = `${swiperName}-section`;
 
   let sectionTitle = document.createElement('h2');
   sectionTitle.classList.add(swiperName, 'product__title');
+  sectionTitle.innerText = `- Our ${swiperName} selection -`;
 
   let slider = document.createElement('div');
   slider.classList.add('swiper-container', 'product__slider--' + swiperName);
@@ -108,14 +139,18 @@ swiperCreate = (swiperName) => {
   let wrapper = document.createElement('div');
   wrapper.classList.add('swiper-wrapper');
 
+  let pagin = document.createElement('div');
+  pagin.classList.add('swiper-pagination');
+
   section.appendChild(sectionTitle);
   section.appendChild(slider);
   slider.appendChild(wrapper);
+  slider.appendChild(pagin);
   mainContainer.appendChild(section);
 
   productObj[swiperName].map((p) => {
     let productContainer = document.createElement('div');
-    productContainer.setAttribute('class', 'swiper-slide product__img');
+    productContainer.classList.add(swiperName, 'swiper-slide', 'product__container');
 
     let productTitle = document.createElement('h2');
     productTitle.classList.add(swiperName, 'product__title');
@@ -123,15 +158,20 @@ swiperCreate = (swiperName) => {
     productContainer.appendChild(productTitle);
 
     let productImg = document.createElement('img');
-    productImg.setAttribute('class', swiperName); // Pour arreter le slider onClick
-    productImg.setAttribute('id', p.id);
+    productImg.classList.add(swiperName, p.id, 'product__img'); // Pour arreter le slider onClick
     productImg.setAttribute('src', p.img);
-
+    productImg.setAttribute('alt', p.title);
     productContainer.appendChild(productImg);
+
+    let productBtn = document.createElement('button');
+    productBtn.classList.add(swiperName, p.id, 'product__btn');
+    productBtn.innerText = 'More info';
+    productContainer.appendChild(productBtn);
+
     wrapper.appendChild(productContainer);
   });
 };
-// TODO make the pagiation
+
 // Object configuration de swiper
 const swiperConf = {
   init: false, // Permet d'initialiser plus tard
@@ -158,3 +198,23 @@ const whiskySwiper = new Swiper('.product__slider--whisky', swiperConf);
 const rhumSwiper = new Swiper('.product__slider--rhum', swiperConf);
 const wineSwiper = new Swiper('.product__slider--wine', swiperConf);
 const tapasSwiper = new Swiper('.product__slider--tapas', swiperConf);
+
+startStopSlider = (elClass, action) => {
+  switch (elClass) {
+    case 'monthly':
+      action === 'start' ? monthlySwiper.autoplay.start() : monthlySwiper.autoplay.stop();
+      break;
+    case 'whisky':
+      action === 'start' ? whiskySwiper.autoplay.start() : whiskySwiper.autoplay.stop();
+      break;
+    case 'rhum':
+      action === 'start' ? rhumSwiper.autoplay.start() : rhumSwiper.autoplay.stop();
+      break;
+    case 'wine':
+      action === 'start' ? wineSwiper.autoplay.start() : wineSwiper.autoplay.stop();
+      break;
+    case 'tapas':
+      action === 'start' ? tapasSwiper.autoplay.start() : tapasSwiper.autoplay.stop();
+      break;
+  }
+};
