@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>4SpiritedGuys</title>
+  <link rel="stylesheet" href="../dist/reset.css" type="text/css">
+  <link rel="stylesheet" href="../dist/style.css" type="text/css">
+  <link rel="stylesheet" href="../dist/reservation.css" type="text/css">
+  <script type="text/javascript" src="../scripts/header.js"></script>
+  <script type="text/javascript" src="../scripts/reservation.js"></script>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Raleway&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div id="burgerIcon" class="burgerIcon">
+        <div></div>
+      </div>
+      <h1>- 4 Spirited Guys -</h1>
+      <img src='/images/icon-logo.svg' class='navIcon'></img>
+    </nav>
+  </header>
+  <main>
+    <div class="menuContainer">
+      <div class="menu">
+        <div class="linkContainer">
+          <a href="./html/home.html">Home</a>
+          <a href="./html/products.hlml">Les produits</a>
+          <a href="./html/reservation.html">Réservation</a>
+          <a href="./html/contact.html">Contact</a>
+          <a href="./html/aboutUs.html">About us</a>
+        </div>
+        <div id="menuImg"></div>
+      </div>
+    </div>
+    <h2>Reservation</h2>
+    <p>Choose a date :</p>
+    <div class="calendarContainer">
+      <div class="calendar">
+        Calendar
+      </div>
+    </div>
+    <div class="resaPopup popinOff popinOffEffect">
+      <form class="resaForm" action="#">
+        <input type="text" name="date" id="date" disabled placeholder="DD-MM-YYYY">
+        <div class="howManyContainer">
+          <label for="howMany">How many</label>
+          <select name="howMany" id="howMany">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="+10">+10</option>
+          </select>
+        </div>
+        <div class="hourContainer">
+          <label for="hour">Hour</label>
+          <select name="hour" id="hour">
+            <option value="17:00">17:00</option>
+            <option value="17:30">17:30</option>
+            <option value="18:00">18:00</option>
+            <option value="18:30">18:30</option>
+            <option value="19:00">19:00</option>
+            <option value="19:30">19:30</option>
+            <option value="20:00">20:00</option>
+            <option value="20:30">20:30</option>
+            <option value="21:00">21:00</option>
+            <option value="21:30">21:30</option>
+            <option value="22:00">22:00</option>
+            <option value="22:30">22:30</option>
+            <option value="23:00">23:00</option>
+            <option value="23:30">23:30</option>
+          </select>
+        </div>
+        <input type="text" name="lastName" id="lastName" placeholder="Last Name">
+        <input type="tel" name="phone" id="phone" placeholder="+33 6 12 34 56 78"> 
+        <input type="email" name="email" id="email" placeholder="bestclient@4sg.com">
+        <button id="btn-form">ENVOYER</button>
+        <div>
+          <p class="resaValHidden" id="val-p1">
+            Your reservation has been validated !
+          </p>
+          <p class="resaValHidden" id="val-p2">
+            We've sent you a recapitulative by mail ;)
+          </p>
+        </div>
+        <a href="./reservation.html" class="resaValHidden" id="val-ok">OK</a>
+      </form>
+    </div>
+  </main>
+</body>
+
+</html>
