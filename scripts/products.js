@@ -11,6 +11,7 @@ let mainContainer = null;
 let moreInfoBtn = null;
 let lastYScrollPos = null;
 let closePopinBtn = null;
+let sections = null;
 
 // Recuperation du JSON des produits
 fetch('../products.json').then((response) =>
@@ -30,6 +31,11 @@ init = () => {
   swiperCreate('rhum');
   swiperCreate('wine');
   swiperCreate('tapas');
+
+  sections = document.getElementsByClassName('product');
+  for (let i = 0; i < sections.length; i++) {
+    if (i % 2 !== 0) sections[i].classList.add('reversed');
+  }
 
   // Initialisation des affichages carousels
   monthlySwiper.init();
@@ -139,6 +145,15 @@ swiperCreate = (swiperName) => {
   sectionTitle.classList.add(swiperName, 'product__title');
   sectionTitle.innerText = `- Our ${swiperName} selection -`;
 
+  let sectionPresentation = document.createElement('div');
+  sectionPresentation.classList.add(swiperName, 'section-pres');
+  let sectionDescription = document.createElement('p');
+  sectionDescription.classList.add('section-desc');
+  sectionDescription.innerText =
+    'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora ea suscipit, facilis itaque dolorem consectetur assumenda eveniet harum soluta numquam.';
+  sectionPresentation.appendChild(sectionTitle);
+  sectionPresentation.appendChild(sectionDescription);
+
   let slider = document.createElement('div');
   slider.classList.add('swiper-container', 'product__slider--' + swiperName);
 
@@ -148,7 +163,7 @@ swiperCreate = (swiperName) => {
   let pagin = document.createElement('div');
   pagin.classList.add('swiper-pagination');
 
-  section.appendChild(sectionTitle);
+  section.appendChild(sectionPresentation);
   section.appendChild(slider);
   slider.appendChild(wrapper);
   slider.appendChild(pagin);
@@ -195,7 +210,21 @@ const swiperConf = {
     delay: 2500,
     disableOnInteraction: true,
   },
-  // breakpoints: {}  ==> Peut remplacer les mediaQueries ou onResize()
+  breakpoints: {
+    640: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+    768: {
+      slidesPerView: 4,
+      spaceBetween: 40,
+    },
+    1024: {
+      effect: 'slide',
+      slidesPerView: 3,
+      centeredSlides: false,
+    },
+  },
 };
 
 // Creation des swipers par catégorie

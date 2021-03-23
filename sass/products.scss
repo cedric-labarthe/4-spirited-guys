@@ -34,39 +34,46 @@ main {
   .product {
     padding-top: 2%;
 
+    .section-desc {
+      display: none;
+    }
+
     &__title {
       margin: 8% 0 2% 0;
+      height: 12%;
       font-family: 'Poiret One', cursive;
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       color: $goldColor;
     }
 
     &__btn {
       position: fixed;
-      bottom: 2%;
-      transform: translate(-50%);
+      bottom: 0%;
       left: 50%;
+      transform: translateX(-50%);
     }
 
     .swiper-container {
       height: 60%;
       padding: 3% 0 5% 0;
       z-index: 0; // TODO Modifier le z-index du menu burger et baniere
-
-      .swiper-slide {
+      display: flex;
+      flex-direction: column;
+    }
+    .swiper-slide {
+      width: 60%;
+      overflow: hidden;
+      img {
         height: auto;
-        width: 60%;
-        img {
-          max-width: 100%;
-        }
+        max-width: 90%;
       }
+    }
 
-      .swiper-pagination {
-        bottom: 0%;
-        &-bullet {
-          border: 0.5px solid #3a3d46;
-          background: $goldColor;
-        }
+    .swiper-pagination {
+      bottom: 0%;
+      &-bullet {
+        border: 0.5px solid #3a3d46;
+        background: $goldColor;
       }
     }
   }
@@ -106,8 +113,8 @@ main {
 
     button {
       position: fixed;
-      top: 2px;
-      right: 2px;
+      top: 0.5%;
+      right: 0.5%;
       width: 20px;
       height: 20px;
       padding: 0;
@@ -128,11 +135,45 @@ main {
     }
 
     &__desc {
-      margin: 10px;
+      margin: 2%;
       border: 1px solid $goldColor;
       border-radius: 5px;
-      max-height: 25%;
+      height: 20%;
       overflow: scroll;
+    }
+  }
+  @media screen and (min-width: 500px) {
+    .product {
+      padding: 0 2% 0 2%;
+      display: flex;
+      align-items: center;
+      &.reversed {
+        flex-direction: row-reverse;
+      }
+      .section-pres {
+        max-width: 30%;
+      }
+      .section-desc {
+        display: block;
+      }
+      &__title {
+        font-size: 1.8rem;
+      }
+      .swiper-container {
+        height: auto;
+        width: 60%;
+      }
+      .swiper-slide {
+        height: auto;
+        width: 40%;
+      }
+    }
+    .more-info-popin {
+      width: 40%;
+      button {
+        width: 40px;
+        height: 40px;
+      }
     }
   }
 }
