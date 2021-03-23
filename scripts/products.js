@@ -9,6 +9,8 @@ let productObj = {};
 let swiperEl = null;
 let mainContainer = null;
 let moreInfoBtn = null;
+let lastYScrollPos = null;
+let closePopinBtn = null;
 
 // Recuperation du JSON des produits
 fetch('../products.json').then((response) =>
@@ -41,15 +43,17 @@ init = () => {
   popInImage = document.getElementById('popin__img');
   popInTitle = document.getElementsByClassName('more-info-popin__title')[0];
   popInDesc = document.getElementsByClassName('more-info-popin__desc')[0];
+  closePopinBtn = document.getElementById('close-popin');
+  closePopinBtn.addEventListener('click', toggleOpenPopin);
 
   // Récuperation des images des carousels + liens avec le produit selectionné
   moreInfoBtn = document.getElementsByClassName('product__btn');
   productArray = document.getElementsByClassName('product__img');
   for (let i = 0; i < productArray.length; i++) {
-    productArray[i].addEventListener('click', toggleOpenPopin);
     productArray[i].addEventListener('click', (e) => getProductInfo(e));
-    moreInfoBtn[i].addEventListener('click', toggleOpenPopin);
+    productArray[i].addEventListener('click', toggleOpenPopin);
     moreInfoBtn[i].addEventListener('click', (e) => getProductInfo(e));
+    moreInfoBtn[i].addEventListener('click', toggleOpenPopin);
   }
 
   burger = document.querySelector('#burgerIcon');
@@ -83,6 +87,9 @@ popInCreate = () => {
 
 // Récupere les infos de l'élement clické
 getProductInfo = (e) => {
+  if (!mainContainer.className.includes('hidden-slider')) {
+    lastYScrollPos = window.scrollY;
+  }
   sectionSelect = productObj[e.target.classList[0]];
   let index = sectionSelect.map((p) => p.id).indexOf(parseInt(e.target.classList[1]));
   popInContainer.classList.add(e.target.classList[0]);
@@ -108,14 +115,15 @@ clickOnBurger = () => {
 };
 
 toggleOpenPopin = () => {
-  if (
-    !popInContainer.className.includes('popin-open') &&
-    !popInContainer.className.includes('popin-closed')
-  ) {
-    popInContainer.classList.toggle('popin-open');
+  popInContainer.classList.toggle('popin-open');
+  popInContainer.classList.toggle('popin-closed');
+  if (mainContainer.className.includes('hidden-slider')) {
+    mainContainer.classList.remove('hidden-slider');
+    setTimeout(() => {
+      window.scroll(0, lastYScrollPos);
+    }, 500);
   } else {
-    popInContainer.classList.toggle('popin-open');
-    popInContainer.classList.toggle('popin-closed');
+    mainContainer.classList.add('hidden-slider');
   }
 };
 

@@ -34,6 +34,7 @@
     </header>
     <main>
       <span id="loading">Loading ...</span>
+
       <div class="menuContainer">
         <div class="menu">
           <div class="linkContainer">
@@ -48,9 +49,15 @@
       </div>
 
       <div id="slides-main-container"></div>
-      <div class="more-info-container" id="popInContainer">
+
+      <div class="more-info-container popin-closed" id="popInContainer">
         <div class="more-info-popin">
           <h2 class="more-info-popin__title">Product name</h2>
+          <button id="close-popin">
+            <svg viewbox="0 0 40 40">
+              <path class="close-x" d="M 10,10 L 30,30 M 30,10 L 10,30" />
+            </svg>
+          </button>
           <img
             class="more-info-popin__img"
             id="popin__img"
