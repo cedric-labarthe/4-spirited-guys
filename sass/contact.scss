@@ -10,6 +10,7 @@
     font-size: 1.2rem;
 }
 .ct-form {
+    position: relative;
     margin: 25px 50px;
     
     .contact-form {
@@ -43,5 +44,35 @@
             padding: 10px 20px;
             border: solid 1px;
         }
+    }
+}
+.popin {
+    position: absolute;
+    top: 30%;
+    background-color: #3A3D46;
+    margin: 30px;
+    border-radius: 2rem;
+}
+.hidden {
+    display: none;
+    opacity: 0;
+}
+.popin {
+    display: block;
+    opacity: 1;
+    transition: all 1s ease-out;
+}
+
+.popMsg {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 45px 3px;
+
+    h3, p {
+        font-size: 22px;
+        margin: 25px 0px;
+        text-align: center;
     }
 }

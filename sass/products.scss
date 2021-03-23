@@ -9,37 +9,71 @@ main {
   color: $globalTextColor;
   text-align: center;
 
-  .product {
-    padding-top: 2vh;
+  .hidden-slider {
+    display: none;
+  }
 
-    &__img {
-      // Pour les placeholders (remplacer par les slides)
-      height: 40vh;
+  #loading {
+    position: fixed;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    opacity: 1;
+    animation: flashing 0.5s ease infinite alternate;
+    font-size: 2rem;
+  }
+  @keyframes flashing {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0.2;
+    }
+  }
+
+  .product {
+    padding-top: 2%;
+
+    .section-desc {
+      display: none;
     }
 
     &__title {
-      margin: 2vh 0 2vh 0;
+      margin: 8% 0 2% 0;
+      height: 12%;
       font-family: 'Poiret One', cursive;
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       color: $goldColor;
     }
 
+    &__btn {
+      position: fixed;
+      bottom: 0%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
     .swiper-container {
-      height: 300px;
-      padding: 3vh 0 5vh 0;
-      z-index: 0; // TODO Modifier le z-index du menu burger
-
-      .swiper-slide {
+      height: 60%;
+      padding: 3% 0 5% 0;
+      z-index: 0; // TODO Modifier le z-index du menu burger et baniere
+      display: flex;
+      flex-direction: column;
+    }
+    .swiper-slide {
+      width: 60%;
+      overflow: hidden;
+      img {
         height: auto;
-        width: 60%;
+        max-width: 90%;
       }
+    }
 
-      .swiper-pagination {
-        bottom: 2%;
-        &-bullet {
-          border: 0.5px solid #3a3d46;
-          background: $goldColor;
-        }
+    .swiper-pagination {
+      bottom: 0%;
+      &-bullet {
+        border: 0.5px solid #3a3d46;
+        background: $goldColor;
       }
     }
   }
@@ -51,7 +85,7 @@ main {
     top: 10vh;
     background-color: rgba(31, 31, 31, 0.801);
     width: 100%;
-    height: 90vh;
+    height: 91%;
     z-index: 5;
 
     &.popin-open {
@@ -77,10 +111,69 @@ main {
       color: $goldColor;
     }
 
+    button {
+      position: fixed;
+      top: 0.5%;
+      right: 0.5%;
+      width: 20px;
+      height: 20px;
+      padding: 0;
+      background: none;
+      border: none;
+      .close-x {
+        stroke: $goldColor;
+        fill: transparent;
+        stroke-linecap: round;
+        stroke-width: 5;
+      }
+    }
+
     &__img {
-      height: 60vh;
+      height: 50%;
       padding: 2px;
       max-width: 95%;
+    }
+
+    &__desc {
+      margin: 2%;
+      border: 1px solid $goldColor;
+      border-radius: 5px;
+      height: 20%;
+      overflow: scroll;
+    }
+  }
+  @media screen and (min-width: 500px) {
+    .product {
+      padding: 0 2% 0 2%;
+      display: flex;
+      align-items: center;
+      &.reversed {
+        flex-direction: row-reverse;
+      }
+      .section-pres {
+        max-width: 30%;
+      }
+      .section-desc {
+        display: block;
+      }
+      &__title {
+        font-size: 1.8rem;
+      }
+      .swiper-container {
+        height: auto;
+        width: 60%;
+      }
+      .swiper-slide {
+        height: auto;
+        width: 40%;
+      }
+    }
+    .more-info-popin {
+      width: 40%;
+      button {
+        width: 40px;
+        height: 40px;
+      }
     }
   }
 }

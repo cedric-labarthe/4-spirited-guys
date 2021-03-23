@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -33,6 +33,8 @@
       </nav>
     </header>
     <main>
+      <span id="loading">Loading ...</span>
+
       <div class="menuContainer">
         <div class="menu">
           <div class="linkContainer">
@@ -46,78 +48,16 @@
         </div>
       </div>
 
-      <div id="slideMenu">
-        <section class="product">
-          <h2 class="product__title">- Our monthly selection -</h2>
-          <div class="swiper-container product__slider--selection">
-            <!-- Additional required wrapper -->
-            <div class="swiper-wrapper">
-              <!-- Slides -->
-              <img
-                class="swiper-slide product__img"
-                src="https://www.whisky.fr/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/5/m58904_1.jpg"
-                alt="monthly selected bottle one"
-              />
-              <img
-                class="swiper-slide product__img"
-                src="https://www.whisky.fr/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/5/m58046.jpg"
-                alt="monthly selected bottle two"
-              />
-              <img
-                class="swiper-slide product__img"
-                id="test2"
-                src="https://cdn.discordapp.com/attachments/816294408806203412/821494009175605258/3._nikola-jovanovic-QGPmWrclELg-unsplash_reworked.jpg"
-                alt="monthly selected bottle three"
-              />
-              <img
-                class="swiper-slide product__img"
-                src="https://cdn.discordapp.com/attachments/816294408806203412/821494123060133948/4._adam-wilson-6UIonphZA5o-unsplash.jpg"
-                alt="monthly selected bottle four"
-              />
-            </div>
-            <div class="swiper-pagination"></div>
-          </div>
-        </section>
+      <div id="slides-main-container"></div>
 
-        <section class="product">
-          <h2 class="product__title">- Our rums selection -</h2>
-          <div class="product__slider">
-            <img
-              src="https://www.whisky.fr/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/5/m58046.jpg"
-              alt="a bottle of rum"
-              class="product__img"
-              id="test2"
-            />
-          </div>
-        </section>
-
-        <section class="product">
-          <h2 class="product__title">- Our whiskies selection -</h2>
-          <div class="product__slider">
-            <img
-              src="https://www.whisky.fr/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/1/m13073a_2.jpg"
-              alt="a bottle of whisky"
-              class="product__img"
-              id="test3"
-            />
-          </div>
-        </section>
-
-        <section class="product">
-          <h2 class="product__title">- Our beers selection -</h2>
-          <div class="product__slider">
-            <img
-              src="https://www.whisky.fr/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/5/m58238.jpg"
-              alt="a bottle of beer"
-              class="product__img"
-              id="test4"
-            />
-          </div>
-        </section>
-      </div>
-      <div class="more-info-container" id="popInContainer">
+      <div class="more-info-container popin-closed" id="popInContainer">
         <div class="more-info-popin">
           <h2 class="more-info-popin__title">Product name</h2>
+          <button id="close-popin">
+            <svg viewbox="0 0 40 40">
+              <path class="close-x" d="M 10,10 L 30,30 M 30,10 L 10,30" />
+            </svg>
+          </button>
           <img
             class="more-info-popin__img"
             id="popin__img"

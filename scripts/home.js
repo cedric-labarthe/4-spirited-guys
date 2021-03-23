@@ -1,12 +1,26 @@
 let topVisible = false;
 let bottomVisible = true;
+let swiper =null;
 
 
 
 init = () => {
     document.addEventListener("scroll", handleScroll);
     console.log("onload home")
-    // setScrollInfoVisibility();
+    swiper = new Swiper('.swiper-container', {
+        slidesPerView: 2,
+        spaceBetween: 30,
+        centeredSlides: true,
+        loop: true,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
 }
 
 setScrollInfoVisibility = () => {
@@ -29,11 +43,15 @@ handleScroll = (e) => {
     }
 
     if(scrollPosition < 100 && !bottomVisible) {
-        bottomScrollInfo.classList.add("infoVisible")
+        bottomScrollInfo.style.visibility = "visible";
+        bottomScrollInfo.classList.add("infoVisible");
         bottomVisible = true;
     } else if (scrollPosition >= 100 && bottomVisible) {
-        bottomScrollInfo.classList.remove("infoVisible")
+        bottomScrollInfo.classList.remove("infoVisible");
         bottomVisible = false;
+        setTimeout(() => {
+            bottomScrollInfo.style.visibility = "hidden";
+        }, 500);
     }
     // if(scrollPosition === 100) {
     //     bottomScrollInfo.style.visibility = "hidden"

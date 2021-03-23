@@ -7,6 +7,10 @@
   <link rel="stylesheet" href="../dist/reset.css" type="text/css">
   <link rel="stylesheet" href="../dist/style.css" type="text/css">
   <link rel="stylesheet" href="../dist/home.css" type="text/css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script type="text/javascript" src="../scripts/header.js"></script>
   <script type="text/javascript" src="../scripts/home.js"></script>
 
@@ -26,11 +30,6 @@
       <div class="menuContainer">
         <div class="menu">
           <div class="linkContainer">
-            <a href="./home.html">Home</a>
-            <a href="./html/products.hlml">Les produits</a>
-            <a href="./html/reservation.html">Réservation</a>
-            <a href="./html/contact.html">Contact</a>
-            <a href="./html/aboutUs.html">About us</a>
           </div>
           <div id="menuImg"></div>
         </div> 
@@ -56,12 +55,30 @@
         <div class="homeTextBox">
             <span>Located in the historical center of Nantes, 4 spirited guys offers you a distinguished, intimate yet friendly place to spend an unique moment</span>
         </div>
-
-        <div id="homeCaroussel">
-            <div class="carousselImg"></div>
-            <div class="carousselImg"></div>
-            <div class="carousselImg"></div>
+        <br>
+        <!-- Slider main container -->
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide" style="background-image: url('/images/home_resto.jpg');">
+            </div>
+            <div class="swiper-slide" style="background-image: url('/images/home_glass.jpg');">
+            </div>
+            <div class="swiper-slide" style="background-image: url('/images/home_resto.jpg');">
+            </div>
+            <div class="swiper-slide" style="background-image: url('/images/home_bottles.jpg');">
+            </div>
+            <div class="swiper-slide" style="background-image: url('/images/home_outside.jpg');">
+            </div>
+            <div class="swiper-slide" style="background-image: url('/images/home_cocktail.jpg');">
+            </div>
+          </div>
+          <!-- Add Pagination -->
+          <div class="swiper-pagination"></div>
+          <!-- Add Arrows -->
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
         </div>
+
 
         <div class="homeTextBox">
             <span>We will welcome you in three differents room and one calm garden.</span>
