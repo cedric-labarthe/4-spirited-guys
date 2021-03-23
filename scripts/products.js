@@ -16,12 +16,12 @@ let sections = null;
 // Recuperation du JSON des produits
 fetchJsonProduct = () => {
   fetch('../products.json').then((response) =>
-  response.json().then((obj) => {
-    productObj = obj.products;
-    init();
-  })
-);
-}
+    response.json().then((obj) => {
+      productObj = obj.products;
+      init();
+    })
+  );
+};
 
 init = () => {
   document.getElementById('loading').remove();
@@ -118,14 +118,22 @@ clickOnPopInContainer = (e) => {
 };
 
 clickOnBurger = () => {
-  if (popIn.className.includes('popin-open')) {
+  if (popInContainer.className.includes('popin-open')) {
     toggleOpenPopin();
   }
 };
 
 toggleOpenPopin = () => {
-  popInContainer.classList.toggle('popin-open');
-  popInContainer.classList.toggle('popin-closed');
+  if (
+    !popInContainer.className.includes('popin-open') &&
+    !popInContainer.className.includes('popin-closed')
+  ) {
+    popInContainer.classList.add('popin-open');
+  } else {
+    popInContainer.classList.toggle('popin-open');
+    popInContainer.classList.toggle('popin-closed');
+  }
+
   if (mainContainer.className.includes('hidden-slider')) {
     mainContainer.classList.remove('hidden-slider');
     window.scroll(0, lastYScrollPos);
@@ -145,7 +153,7 @@ swiperCreate = (swiperName) => {
   section.id = `${swiperName}-section`;
 
   let sectionTitle = document.createElement('h2');
-  sectionTitle.classList.add(swiperName, 'product__title');
+  sectionTitle.classList.add(swiperName, 'section__title');
   sectionTitle.innerText = `- Our ${swiperName} selection -`;
 
   let sectionPresentation = document.createElement('div');
@@ -172,7 +180,7 @@ swiperCreate = (swiperName) => {
   slider.appendChild(pagin);
   mainContainer.appendChild(section);
 
-  console.log(productObj, swiperName)
+  console.log(productObj, swiperName);
   productObj[swiperName].map((p) => {
     let productContainer = document.createElement('div');
     productContainer.classList.add(swiperName, 'swiper-slide', 'product__container');

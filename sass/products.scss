@@ -37,20 +37,13 @@ main {
     .section-desc {
       display: none;
     }
-
-    &__title {
+    .section__title {
       margin: 8% 0 2% 0;
       height: 12%;
       font-family: 'Poiret One', cursive;
-      font-size: 1.3rem;
+      text-decoration: underline;
+      font-size: 1.5rem;
       color: $goldColor;
-    }
-
-    &__btn {
-      position: fixed;
-      bottom: 0%;
-      left: 50%;
-      transform: translateX(-50%);
     }
 
     .swiper-container {
@@ -60,12 +53,35 @@ main {
       display: flex;
       flex-direction: column;
     }
-    .swiper-slide {
-      width: 60%;
-      overflow: hidden;
-      img {
+    .swiper-wrapper {
+      height: 80%;
+
+      .swiper-slide {
         height: auto;
-        max-width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        width: 60%;
+        overflow: hidden;
+
+        .product__title {
+          margin: 8% 0 5% 0;
+          line-height: 110%;
+          height: 12%;
+          font-family: 'Poiret One', cursive;
+          font-size: 1.3rem;
+          color: $goldColor;
+        }
+        .product__img {
+          height: auto;
+          max-width: 90%;
+        }
+        .product__btn {
+          margin-top: auto;
+          background: $goldColor;
+          border-radius: 5px;
+        }
       }
     }
 
@@ -105,18 +121,41 @@ main {
     left: 50%;
     top: 55%;
     transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     &__title {
-      padding: 5%;
+      margin: 5% 0 5% 0;
+      line-height: 110%;
+      font-family: 'Poiret One', cursive;
+      font-size: 1.3rem;
       color: $goldColor;
     }
 
+    &__img {
+      flex-grow: 4;
+      width: auto;
+      height: 40%;
+    }
+
+    &__desc {
+      margin: 2%;
+      border: 1px solid $goldColor;
+      border-radius: 5px;
+      height: 20%;
+      overflow: scroll;
+    }
+    &__add-btn {
+      margin: 5%;
+      align-self: flex-end;
+    }
     button {
       position: fixed;
       top: 0.5%;
       right: 0.5%;
-      width: 20px;
-      height: 20px;
+      width: 30px;
+      height: 30px;
       padding: 0;
       background: none;
       border: none;
@@ -126,20 +165,6 @@ main {
         stroke-linecap: round;
         stroke-width: 5;
       }
-    }
-
-    &__img {
-      height: 50%;
-      padding: 2px;
-      max-width: 95%;
-    }
-
-    &__desc {
-      margin: 2%;
-      border: 1px solid $goldColor;
-      border-radius: 5px;
-      height: 20%;
-      overflow: scroll;
     }
   }
   @media screen and (min-width: 500px) {
