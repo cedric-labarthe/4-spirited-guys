@@ -41,7 +41,7 @@ function init() {
         if (popin.classList.contains("popinOff")) {
             setTimeout(() => {
                 popin.classList.toggle("popinOff")
-            }, 190);
+            }, 170);
             popin.classList.toggle("popinOff")
         }
 
@@ -58,7 +58,7 @@ function init() {
             popin.classList.toggle("popinOnEffect")
             setTimeout(() => {
                 popin.classList.toggle("popinOff")
-            }, 190);
+            }, 170);
         }
     }
 
