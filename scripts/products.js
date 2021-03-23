@@ -119,9 +119,7 @@ toggleOpenPopin = () => {
   popInContainer.classList.toggle('popin-closed');
   if (mainContainer.className.includes('hidden-slider')) {
     mainContainer.classList.remove('hidden-slider');
-    setTimeout(() => {
-      window.scroll(0, lastYScrollPos);
-    }, 500);
+    window.scroll(0, lastYScrollPos);
   } else {
     mainContainer.classList.add('hidden-slider');
   }
