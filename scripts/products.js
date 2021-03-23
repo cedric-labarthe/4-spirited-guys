@@ -14,11 +14,14 @@ let closePopinBtn = null;
 let sections = null;
 
 // Recuperation du JSON des produits
-fetch('../products.json').then((response) =>
+fetchJsonProduct = () => {
+  fetch('../products.json').then((response) =>
   response.json().then((obj) => {
     productObj = obj.products;
+    init();
   })
 );
+}
 
 init = () => {
   document.getElementById('loading').remove();
@@ -133,7 +136,7 @@ toggleOpenPopin = () => {
 
 // TOOLS
 
-window.addEventListener('load', init);
+window.addEventListener('load', fetchJsonProduct);
 
 // Crée une structure html en fonction de l'argument passé
 swiperCreate = (swiperName) => {
@@ -169,6 +172,7 @@ swiperCreate = (swiperName) => {
   slider.appendChild(pagin);
   mainContainer.appendChild(section);
 
+  console.log(productObj, swiperName)
   productObj[swiperName].map((p) => {
     let productContainer = document.createElement('div');
     productContainer.classList.add(swiperName, 'swiper-slide', 'product__container');

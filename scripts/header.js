@@ -4,10 +4,10 @@ let windowWidth = null;
 
 const menuItems = [
   {title: "Home", img: "/images/home_glass.jpg", link: "index.html"},
-  {title: "Our products", img: "/images/menu_whisky.jpg", link: "html/products.html"},
-  {title: "Reservation", img: "/images/home_resto.jpg", link: "html/reservation.html"},
-  {title: "Contact", img: "/images/home_cocktail.jpg", link: "html/contact.html"},
-  {title: "About us", img: "/images/menu_whisky.jpg", link: "html/aboutus.html"}
+  {title: "Our products", img: "/images/menu_whisky.jpg", link: "products.html"},
+  {title: "Reservation", img: "/images/home_resto.jpg", link: "reservation.html"},
+  {title: "Contact", img: "/images/home_cocktail.jpg", link: "contact.html"},
+  {title: "About us", img: "/images/menu_whisky.jpg", link: "aboutus.html"}
 ]
 
 init = () => {
