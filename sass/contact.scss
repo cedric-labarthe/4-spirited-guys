@@ -46,6 +46,20 @@
         }
     }
 }
+
+.iFrameContainer {
+    width: 100vw;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5vh;
+    iframe {
+        width: 80vw;
+        height: 100%;
+    }
+}
+
+
 .popin {
     position: absolute;
     top: 30%;
