@@ -77,10 +77,7 @@ function init() {
     buttonval.addEventListener('click', hideForm)
 
     function hideForm() {
-        if (!inputLastName.value || !inputPhone.value || !inputEmail.value) {
-            alert("You must fill all the fields.")
-        } else {
-
+        if (inputLastName.value && inputPhone.value && inputEmail.value) {
             inputDate.remove();
             inputHowMany.remove();
             inputHour.remove();
