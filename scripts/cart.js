@@ -58,7 +58,12 @@ buildCart = (cart) => {
 
 noProducts = () => {
     const cartContainer = document.getElementById("cartContainer");
+    document.getElementById("priceContainer").style.display="none";
     cartContainer.innerText = "Your cart is empty";
+    cartContainer.style.fontSize = "26px";
+    cartContainer.style.marginTop = "10vh";
+    cartContainer.style.marginBottom = "40vh";
+    document.getElementById("bottomInfo").style.display ="none";
 }
 
 deleteProduct = (id) => {
