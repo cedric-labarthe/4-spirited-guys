@@ -1,16 +1,22 @@
-let totalPrice;
+let totalPrice = 0;
 let cart = null;
+let popup = null;
 
 
 init = () => {
     cart = getProductsCart();
 
-    if(cart.length) {
+    if(cart && cart.length) {
         buildCart(cart);
     } else {
         noProducts();
+        document.getElementById("validCard").style.visibility = "hidden";
     }
-
+    popup = document.getElementById("popupContainer");
+    popup.addEventListener("click", clickOnPopupContainer);
+    document.getElementById("validCard").addEventListener("click", checkoutCart);
+    document.getElementById("yesButton").addEventListener("click", validCart);
+    document.getElementById("noButton").addEventListener("click", closePopup);
 }
 
 getProductsCart = () => {
@@ -23,21 +29,31 @@ buildCart = (cart) => {
     cart.forEach(element => {
         let product = document.createElement("div");
         product.className="productContainer";
-        let title = document.createElement("span");
-        let deleteButton = document.createElement("div");
-        deleteButton.innerText = "X";
-        deleteButton.addEventListener("click", () => {deleteProduct(element.id)})
-        let img = document.createElement("img");
 
+        let deleteButton = document.createElement("div");
+        deleteButton.className = "deleteButton";
+        deleteButton.innerText = "X";
+     
+        deleteButton.addEventListener("click", () => {deleteProduct(element.id)});
+
+        let title = document.createElement("span");
         title.innerText = element.title;
+        
+        let img = document.createElement("img");
         img.src = element.img;
 
-        product.appendChild(title);
+
         product.appendChild(deleteButton);
+        product.appendChild(title);
         product.appendChild(img);
 
         cartContainer.appendChild(product)
+        console.log(element.price)
+        if(element.price) {
+            totalPrice += element.price;
+        }
     });
+    document.getElementById("totalPrice").innerText = totalPrice + " €";
 }
 
 noProducts = () => {
@@ -51,5 +67,29 @@ deleteProduct = (id) => {
     localStorage.setItem("cart", JSON.stringify(cart));
     location.reload();
 }
+
+checkoutCart = () => {
+    popup.classList.add("show");
+    popup.classList.add("opacityMax");  
+}
+
+validCart = () => {
+    localStorage.removeItem("cart");
+    localStorage.setItem("cartOk", true);
+    window.location = location.origin + "/index.html";
+}
+
+closePopup = () => {
+    popup.classList.remove("opacityMax");
+    setTimeout(() => {
+        popup.classList.remove("show");
+    }, 500);
+}
+
+clickOnPopupContainer = (e) => {
+    if(e.target === e.currentTarget) {
+        closePopup();
+    }
+  }
 
 window.addEventListener('load', init);

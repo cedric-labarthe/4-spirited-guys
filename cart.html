@@ -19,6 +19,15 @@
   </head>
   <body>
     <header>
+        <div id="popupContainer">
+            <div id="popup">
+              <span>Do you want to confirm your purchase ?</span>
+              <div class="buttonContainer">
+                  <span class="popButton" id="yesButton">YES</span>
+                  <span class="popButton" id="noButton">NO</span>
+              </div>
+            </div> 
+          </div>
       <nav>
         <div id="burgerIcon" class="burgerIcon"><div></div></div>
         <h1>- 4 Spirited Guys -</h1>
@@ -26,6 +35,7 @@
       </nav>
     </header>
     <main>
+       
       <div class="menuContainer">
         <div class="menu">
           <div class="linkContainer">
@@ -35,6 +45,10 @@
       </div>
       <h2>- My cart -</h2>
       <div id="cartContainer">
+      </div>
+      <div id="priceContainer">
+        <span>Total price : </span>
+      <span id="totalPrice"></span>
       </div>
       <div id="validCard">Confirm purchase</div>
         <div class="scrollingInfo" id="topInfo"></div>
