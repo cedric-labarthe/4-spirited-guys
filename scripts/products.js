@@ -12,13 +12,15 @@ let moreInfoBtn = null;
 let lastYScrollPos = null;
 let closePopinBtn = null;
 let sections = null;
+let classArray = null;
 
 // Recuperation du JSON des produits
 fetchJsonProduct = () => {
   fetch('../products.json').then((response) =>
     response.json().then((obj) => {
       productObj = obj.products;
-      init();
+      setTimeout(init, 1000);
+      //init();
     })
   );
 };
@@ -27,6 +29,7 @@ init = () => {
   document.getElementById('loading').remove();
 
   mainContainer = document.getElementById('slides-main-container');
+  classArray = Object.keys(productObj);
 
   // Creation des strucures html des carousels
   swiperCreate('monthly');
@@ -80,7 +83,6 @@ handleSwiperWithScroll = () => {
 };
 
 chooseTheSliders = (centredClass) => {
-  let classArray = ['monthly', 'whisky', 'rhum', 'wine', 'tapas'];
   let filtredArray = classArray.filter((x) => x !== centredClass);
   filtredArray.forEach((x) => startStopSlider(x, 'stop'));
   startStopSlider(centredClass, 'start');
@@ -174,8 +176,14 @@ swiperCreate = (swiperName) => {
   let pagin = document.createElement('div');
   pagin.classList.add('swiper-pagination');
 
+  let separation = document.createElement('div');
+  separation.classList.add('section-separation');
+
   section.appendChild(sectionPresentation);
   section.appendChild(slider);
+  if (classArray.indexOf(swiperName) !== classArray.length - 1) {
+    section.appendChild(separation);
+  }
   slider.appendChild(wrapper);
   slider.appendChild(pagin);
   mainContainer.appendChild(section);
