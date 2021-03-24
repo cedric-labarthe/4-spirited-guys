@@ -42,10 +42,14 @@ buildCart = (cart) => {
         let img = document.createElement("img");
         img.src = element.img;
 
+        let price = document.createElement("span");
+        price.innerText = element.price + " €"
+
 
         product.appendChild(deleteButton);
         product.appendChild(title);
         product.appendChild(img);
+        product.append(price)
 
         cartContainer.appendChild(product)
         console.log(element.price)
