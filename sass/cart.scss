@@ -1,0 +1,60 @@
+#cartContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5vh;
+
+    .productContainer {
+        width: 80vw;
+        border: 2px #C09066 solid;
+        margin-top: 3vh;
+        padding-top: 2vh;
+       
+        img {
+            width: 100%;
+            margin-top: 2vh;
+
+        }
+    }
+}
+
+#validCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #C09066;
+    width: 50%;
+    height: 10vh;
+    border: 2px #C09066 solid;
+    border-radius: 20px;
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 500px) {
+    #cartContainer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-bottom: 5vh;
+    
+        .productContainer {
+            width: 25vw;
+            border: 1px #C09066 solid;
+            margin: 5vh 5vh;
+           
+            img {
+                width: 100%;
+                margin-top: 2vh;
+            }
+        }
+    }
+
+    #validCard {
+        width: 30%;
+        height: 5vh;
+        border: 1px #C09066 solid;
+        border-radius: 5px;
+
+    }
+}
