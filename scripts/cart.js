@@ -57,12 +57,14 @@ buildCart = (cart) => {
 }
 
 noProducts = () => {
-    const cartContainer = document.getElementById("cartContainer");
+    const textContainer = document.createElement("span");
     document.getElementById("priceContainer").style.display="none";
-    cartContainer.innerText = "Your cart is empty";
-    cartContainer.style.fontSize = "26px";
-    cartContainer.style.marginTop = "10vh";
-    cartContainer.style.marginBottom = "40vh";
+    textContainer.innerText = "Your cart is empty";
+    textContainer.style.fontSize = "26px";
+    textContainer.style.marginTop = "10vh";
+    textContainer.style.marginBottom = "35vh";
+    document.getElementById("cartContainer").style.justifyContent = "center";
+    document.getElementById("cartContainer").appendChild(textContainer);
     document.getElementById("bottomInfo").style.display ="none";
 }
 
