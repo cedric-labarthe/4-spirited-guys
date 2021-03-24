@@ -4,6 +4,7 @@ let swiper =null;
 
 init = () => {
     document.addEventListener("scroll", handleScroll);
+
     if(window.location.pathname === "/index.html") {
         swiper = new Swiper('.swiper-container', {
             slidesPerView: 2,
@@ -19,6 +20,14 @@ init = () => {
             prevEl: '.swiper-button-prev',
             },
         });
+    }
+
+    if(localStorage.getItem("cartOk") && window.location.pathname === "/index.html") {
+        document.getElementById("purchaseOK").classList.add("present");
+        setTimeout(() => {
+            document.getElementById("purchaseOK").classList.remove("present");
+            localStorage.removeItem("cartOk")
+        }, 2000);
     }
 }
 
