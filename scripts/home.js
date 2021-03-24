@@ -2,25 +2,24 @@ let topVisible = false;
 let bottomVisible = true;
 let swiper =null;
 
-
-
 init = () => {
     document.addEventListener("scroll", handleScroll);
-    console.log("onload home")
-    swiper = new Swiper('.swiper-container', {
-        slidesPerView: 2,
-        spaceBetween: 30,
-        centeredSlides: true,
-        loop: true,
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-      });
+    if(window.location.pathname === "/index.html") {
+        swiper = new Swiper('.swiper-container', {
+            slidesPerView: 2,
+            spaceBetween: 30,
+            centeredSlides: true,
+            loop: true,
+            pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+            },
+            navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+            },
+        });
+    }
 }
 
 setScrollInfoVisibility = () => {
@@ -28,16 +27,19 @@ setScrollInfoVisibility = () => {
     document.getElementById("bottom").style.visibility = 'visible'
 }
 
-
 handleScroll = (e) => {
+    console.log("scroll")
     let scrollPosition = getScrollPercent();
     let topScrollInfo = document.getElementById("topInfo");
     let bottomScrollInfo = document.getElementById("bottomInfo");
 
     if(scrollPosition > 0 && !topVisible) {
+    console.log("scroll")
+
         topScrollInfo.classList.add("infoVisible");
         topVisible = true;
     } else if (scrollPosition <= 0 && topVisible) {
+        console.log("scroll 0")  
         topScrollInfo.classList.remove("infoVisible");
         topVisible = false;
     }
@@ -47,18 +49,13 @@ handleScroll = (e) => {
         bottomScrollInfo.classList.add("infoVisible");
         bottomVisible = true;
     } else if (scrollPosition >= 100 && bottomVisible) {
+        console.log("scroll 100")
         bottomScrollInfo.classList.remove("infoVisible");
         bottomVisible = false;
         setTimeout(() => {
             bottomScrollInfo.style.visibility = "hidden";
         }, 500);
     }
-    // if(scrollPosition === 100) {
-    //     bottomScrollInfo.style.visibility = "hidden"
-    // }
-    // if(scrollPosition === 0) {
-    //     topScrollInfo.style.visibility = "hidden"
-    // }
 }
 
 getScrollPercent = () => {

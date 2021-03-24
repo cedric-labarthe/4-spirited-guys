@@ -82,6 +82,30 @@ header {
     }
 }
 
+.scrollingInfo {
+    height: 10vh;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s;
+    z-index: 9;
+
+    &#topInfo {
+        top: 10vh;
+        background: linear-gradient(0deg, rgba(69,75,92,0) 0%, $darkerMainColor 100%);
+    }
+
+    &#bottomInfo {
+        bottom: 0;
+        background: linear-gradient(0deg, $darkerMainColor 0%, rgba(69,75,92,0) 100%);
+    }
+
+    &.infoVisible {
+        opacity: 100;
+    }
+}
+
 .menuContainer {
     position: fixed;
     top: 10vh;
