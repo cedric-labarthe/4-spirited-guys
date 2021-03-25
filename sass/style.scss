@@ -48,6 +48,9 @@ header {
 
         .navIcon {
             height: 60%;
+            &.clickable:hover {
+                background-color: red;
+            }
         }
         
         .burgerIcon{
@@ -90,6 +93,7 @@ header {
     opacity: 0;
     transition: opacity 0.5s;
     z-index: 9;
+    pointer-events: none;
 
     &#topInfo {
         top: 10vh;

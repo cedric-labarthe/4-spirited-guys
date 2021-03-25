@@ -37,18 +37,15 @@ setScrollInfoVisibility = () => {
 }
 
 handleScroll = (e) => {
-    console.log("scroll")
     let scrollPosition = getScrollPercent();
     let topScrollInfo = document.getElementById("topInfo");
     let bottomScrollInfo = document.getElementById("bottomInfo");
 
     if(scrollPosition > 0 && !topVisible) {
-    console.log("scroll")
 
         topScrollInfo.classList.add("infoVisible");
         topVisible = true;
     } else if (scrollPosition <= 0 && topVisible) {
-        console.log("scroll 0")  
         topScrollInfo.classList.remove("infoVisible");
         topVisible = false;
     }
@@ -58,7 +55,6 @@ handleScroll = (e) => {
         bottomScrollInfo.classList.add("infoVisible");
         bottomVisible = true;
     } else if (scrollPosition >= 100 && bottomVisible) {
-        console.log("scroll 100")
         bottomScrollInfo.classList.remove("infoVisible");
         bottomVisible = false;
         setTimeout(() => {

@@ -52,7 +52,6 @@ buildCart = (cart) => {
         product.append(price)
 
         cartContainer.appendChild(product)
-        console.log(element.price)
         if(element.price) {
             totalPrice += element.price;
         }

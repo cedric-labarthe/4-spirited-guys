@@ -21,6 +21,18 @@ init = () => {
     burger.addEventListener('mouseenter', highLight);
     burger.addEventListener('mouseleave', highLight);
     menu.addEventListener('click', (evt) => {clickOnMenuContainer(evt)});
+
+    let card = JSON.parse(localStorage.getItem("cart"));
+  
+    if(card && card.length) {
+      let navIcon = document.querySelector(".navIcon");
+      navIcon.src = "../images/shopping-cart.png";
+      navIcon.classList.add("clickable");
+      navIcon.addEventListener("click", () => {
+        window.location = location.origin + "/index.html";
+      })
+
+    }
 }
 
 buildMenu = () => {
