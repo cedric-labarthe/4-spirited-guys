@@ -1,10 +1,27 @@
-const popin = document.querySelector(".popin");
-const btn = document.getElementById("btn-form");
-const inputName = document.getElementById("name");
-const inputMail = document.getElementById("email");
-const inputMsg = document.getElementById("message");
+let popin = null;
+let btn = null;
+let inputName = null;
+let inputMail = null;
+let inputMsg = null;
 
-btn.addEventListener("click", popup);
+
+function init() {
+
+  popin = document.querySelector(".popin");
+  btn = document.getElementById("btn-form");
+  inputName = document.getElementById("name");
+  inputMail = document.getElementById("email");
+  inputMsg = document.getElementById("message");
+  burger = document.getElementById("burgerIcon");
+
+  btn.addEventListener("click", popup);
+
+  popin.addEventListener("click", (evt) => {
+    clickOnPopinContainer(evt);
+  });
+
+  burger.addEventListener("click", burgerClosesPopin);
+}
 
 function popup() {
   if (inputName.value && inputMail.value && inputMsg.value) {
@@ -16,10 +33,6 @@ function popMsg() {
   popin.classList.toggle("hidden");
 }
 
-popin.addEventListener("click", (evt) => {
-  clickOnPopinContainer(evt);
-});
-
 clickOnPopinContainer = (e) => {
   if (e.target === e.currentTarget) {
     popin.classList.toggle("popinOffEffect");
@@ -30,8 +43,6 @@ clickOnPopinContainer = (e) => {
   }
 };
 
-burger.addEventListener("click", burgerClosesPopin);
-
 function burgerClosesPopin() {
   if (!popin.classList.contains("popinOff")) {
     popin.classList.toggle("popinOffEffect");
@@ -41,3 +52,5 @@ function burgerClosesPopin() {
     }, 190);
   }
 }
+
+window.addEventListener('load', init);
