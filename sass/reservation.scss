@@ -29,55 +29,94 @@ main {
     .calendar {
       //width: 80%;
       //height : 50vh;
-      background-color: grey;
+      background-color: $lighterMainColor;;
     }
   }
 
-  .popinOff {
-    //display: none;
-    visibility: hidden;
+
+  @media screen and (max-width: 768px) {
+    .popinOff {
+      //display: none;
+      visibility: hidden;
+    }
+
+    .popinOffEffect {
+      animation: 0.2s fadeout;
+    }
+  
+    @keyframes fadeout {
+      from {
+        opacity: 1;
+      }
+      to {
+        opacity: 0;
+      }
+    }
+  
+    .popinOnEffect {
+      animation: 0.4s fadein;
+    }
+  
+    @keyframes fadein {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .resaPopup {
+      position: fixed;
+      top: 10vh;
+      left: 0;
+      width: 100%;
+      height: 90vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(31, 31, 31, 0.801);
+    }
+
+    .resaForm {
+      width: 80%;
+      height: 70vh;
+    }
   }
 
-  .popinOffEffect {
-    animation: 0.2s fadeout;
-  }
+  @media screen and (min-width: 769px) {
+    .calendarForm {
+      display:flex;
+      justify-content: space-around;
+      height:55vh;
+    }
 
-  @keyframes fadeout {
-    from {
-      opacity: 1;
+    .resaPopup {
+      width : 40%;
+      height : 50vh;
+      border : $goldColor 1px solid;
+      border-radius: 0.5rem;
     }
-    to {
-      opacity: 0;
-    }
-  }
 
-  .popinOnEffect {
-    animation: 0.4s fadein;
-  }
+    .resaForm {
+      width: 90%;
+      height: 45vh;
+    }
 
-  @keyframes fadein {
-    from {
-      opacity: 0;
+    .picker{
+      margin-top:10vh;
+
     }
-    to {
-      opacity: 1;
-    }
+    
   }
 
   .resaPopup {
-    position: fixed;
-    top: 10vh;
-    left: 0;
-    width: 100%;
-    height: 90vh;
-    background-color: rgba(31, 31, 31, 0.801);
     display: flex;
     justify-content: center;
     align-items: center;
 
     .resaForm {
-      width: 80%;
-      height: 70vh;
+
       background-color: $lighterMainColor;
       display: flex;
       flex-direction: column;
@@ -149,6 +188,10 @@ main {
         padding: 10px 20px;
         border: solid 1px;
         text-decoration: none;
+      }
+
+      .btn-formHidden{
+        visibility: hidden;
       }
 
       .resaValHidden {

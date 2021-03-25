@@ -28,66 +28,101 @@ main .calendarContainer {
 }
 
 main .calendarContainer .calendar {
-  background-color: grey;
+  background-color: #454b5c;
 }
 
-main .popinOff {
-  visibility: hidden;
+@media screen and (max-width: 768px) {
+  main .popinOff {
+    visibility: hidden;
+  }
+  main .popinOffEffect {
+    -webkit-animation: 0.2s fadeout;
+            animation: 0.2s fadeout;
+  }
+  @-webkit-keyframes fadeout {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  @keyframes fadeout {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  main .popinOnEffect {
+    -webkit-animation: 0.4s fadein;
+            animation: 0.4s fadein;
+  }
+  @-webkit-keyframes fadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  main .resaPopup {
+    position: fixed;
+    top: 10vh;
+    left: 0;
+    width: 100%;
+    height: 90vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    background-color: rgba(31, 31, 31, 0.801);
+  }
+  main .resaForm {
+    width: 80%;
+    height: 70vh;
+  }
 }
 
-main .popinOffEffect {
-  -webkit-animation: 0.2s fadeout;
-          animation: 0.2s fadeout;
-}
-
-@-webkit-keyframes fadeout {
-  from {
-    opacity: 1;
+@media screen and (min-width: 769px) {
+  main .calendarForm {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    height: 55vh;
   }
-  to {
-    opacity: 0;
+  main .resaPopup {
+    width: 40%;
+    height: 50vh;
+    border: #c09066 1px solid;
+    border-radius: 0.5rem;
   }
-}
-
-@keyframes fadeout {
-  from {
-    opacity: 1;
+  main .resaForm {
+    width: 90%;
+    height: 45vh;
   }
-  to {
-    opacity: 0;
-  }
-}
-
-main .popinOnEffect {
-  -webkit-animation: 0.4s fadein;
-          animation: 0.4s fadein;
-}
-
-@-webkit-keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
+  main .picker {
+    margin-top: 10vh;
   }
 }
 
 main .resaPopup {
-  position: fixed;
-  top: 10vh;
-  left: 0;
-  width: 100%;
-  height: 90vh;
-  background-color: rgba(31, 31, 31, 0.801);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -100,8 +135,6 @@ main .resaPopup {
 }
 
 main .resaPopup .resaForm {
-  width: 80%;
-  height: 70vh;
   background-color: #454b5c;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -194,6 +227,10 @@ main .resaPopup .resaForm #val-ok {
   padding: 10px 20px;
   border: solid 1px;
   text-decoration: none;
+}
+
+main .resaPopup .resaForm .btn-formHidden {
+  visibility: hidden;
 }
 
 main .resaPopup .resaForm .resaValHidden {
