@@ -52,11 +52,6 @@ handleScroll = (e) => {
         topVisible = false;
     }
 
-    // if(isInViewport(iconScrolltest)) {
-    //     console.log(isInViewport(iconScrolltest))
-    //     console.log("lol")
-    // }
-
     if(!isInViewport(iconScrolltest) && !bottomVisible) {
         bottomScrollInfo.style.visibility = "visible";
         bottomScrollInfo.classList.add("infoVisible");
