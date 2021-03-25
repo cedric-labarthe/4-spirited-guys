@@ -89,8 +89,12 @@ main .bottomPageLink {
     background-position-y: -100px;
     margin: 9vh 0;
   }
+  main .homeTextBox {
+    padding: 0 3vw 0 3vw;
+  }
   main h2 {
     margin: 10vh 0 10vh 0;
+    font-size: 2rem;
   }
   main .swiper-container {
     margin: 5vh 0 12vh 0;
