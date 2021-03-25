@@ -9,6 +9,13 @@ main {
   color: $globalTextColor;
   text-align: center;
 
+  h2 {
+    margin: 2vh 0 2vh 0;
+    font-family: 'Poiret One', cursive;
+    font-size: 1.5rem;
+    color: $goldColor;
+  }
+
   #footer {
     visibility: hidden;
     &.visible {
@@ -225,11 +232,15 @@ main {
       }
       .swiper-container {
         height: auto;
-        width: 60%;
+        width: 80%;
+        padding-right: 2%;
       }
       .swiper-slide {
         height: auto;
-        width: 40%;
+        width: 30%;
+      }
+      .swiper-pagination {
+        bottom: 5%;
       }
     }
     .more-info-popin {
