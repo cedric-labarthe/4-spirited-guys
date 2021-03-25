@@ -17,6 +17,7 @@ let sections = null;
 let classArray = [];
 let actualStorage = null;
 let currentProduct = null;
+let footer = null;
 
 // Recuperation du JSON des produits
 fetchJsonProduct = () => {
@@ -53,14 +54,13 @@ init = () => {
   tapasSwiper.init();
 
   popInCreate();
-
   popInImage = document.getElementById('popin__img');
   popInTitle = document.getElementsByClassName('more-info-popin__title')[0];
   popInDesc = document.getElementsByClassName('more-info-popin__desc')[0];
-  popInPrice = document.getElementsByClassName('more-info-popin__price')[0];
+  popInPrice = document.getElementsByClassName('more-info-popin__footer-price')[0];
   closePopinBtn = document.getElementById('close-popin');
   closePopinBtn.addEventListener('click', toggleOpenPopin);
-  addToCartBtn = document.getElementsByClassName('more-info-popin__add-btn')[0];
+  addToCartBtn = document.getElementsByClassName('more-info-popin__footer-add-btn')[0];
   addToCartBtn.addEventListener('click', () => addToCart(currentProduct));
   addToCartBtn.addEventListener('click', toggleOpenPopin);
 
@@ -70,6 +70,9 @@ init = () => {
 
   burger = document.querySelector('#burgerIcon');
   burger.addEventListener('click', clickOnBurger);
+
+  footer = document.getElementById('footer');
+  footer.classList.add('visible');
 
   window.onscroll = handleSwiperWithScroll;
   let initAutoplay = ['whisky', 'rhum', 'wine', 'tapas'].forEach((x) => startStopSlider(x, 'stop'));

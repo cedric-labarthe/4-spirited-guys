@@ -9,6 +9,13 @@ main {
   color: $globalTextColor;
   text-align: center;
 
+  #footer {
+    visibility: hidden;
+    &.visible {
+      visibility: visible;
+    }
+  }
+
   .hidden-slider {
     display: none;
   }
@@ -73,14 +80,14 @@ main {
           font-size: 1.3rem;
           color: $goldColor;
         }
+
         .product__img {
           height: auto;
           max-width: 90%;
         }
+
         .product__btn {
-          margin-top: auto;
-          background: $goldColor;
-          border-radius: 5px;
+          padding: 5px 10px;
         }
       }
     }
@@ -147,17 +154,31 @@ main {
     }
 
     &__desc {
+      text-align: justify;
+      padding: 5% 4% 0 4%;
       margin: 2%;
       border: 1px solid $goldColor;
       border-radius: 5px;
       height: 20%;
       overflow: scroll;
     }
-    &__add-btn {
-      margin: 5%;
-      align-self: flex-end;
+    &__footer {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+
+      &-price {
+        margin: 5%;
+        align-self: flex-start;
+      }
+      &-add-btn {
+        margin: 5%;
+        align-self: flex-end;
+      }
     }
-    button {
+
+    .more-info-popin__close-btn {
       width: 30px;
       height: 30px;
       padding: 0;
