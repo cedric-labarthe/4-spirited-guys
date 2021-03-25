@@ -114,6 +114,7 @@ main .product .swiper-wrapper .swiper-slide .product__img {
 }
 
 main .product .swiper-wrapper .swiper-slide .product__btn {
+  margin-top: 1.5%;
   padding: 5px 10px;
 }
 
