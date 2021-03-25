@@ -1,100 +1,99 @@
 .contact-title {
-    font-size: 1.4rem;
-    text-align: center;
-    padding-top: 115px;
-    font-weight: 400;
+  font-size: 1.4rem;
+  text-align: center;
+  padding-top: 115px;
+  font-weight: 400;
 }
 .contact-p {
-    text-align: center;
-    padding-top: 15px;
-    font-size: 1.2rem;
+  text-align: center;
+  padding-top: 15px;
+  font-size: 1.2rem;
 }
 .ct-form {
-    position: relative;
-    margin: 25px 50px;
-    
-    .contact-form {
-        display: flex;
-        flex-direction: column;
+  position: relative;
+  margin: 25px 50px;
 
-        .ct-label {
-            padding: 30px 0 12px  0;
-            font-size: 1rem;
-        }
-        .ct-input {
-            padding: 5px;
-            border: solid 1px #C09066;
-            height: 20px;
-            background-color: antiquewhite;
-            color: #454B5C;
-            font-size: 1.3rem;
-            border-radius: 0.5rem;
-        }
-        .ct-input-txt {
-            height: 80px;
-            resize: none;
-        }
-        .ct-button {
-            background-color: #3A3D46;
-            color: #C09066;
-            cursor: pointer;
-            font-size: 1.2rem;
-            border-radius: 10px;
-            margin: 35px auto;
-            padding: 10px 20px;
-            border: solid 1px;
-        }
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+
+    .ct-label {
+      padding: 30px 0 12px 0;
+      font-size: 1rem;
     }
+    .ct-input {
+      padding: 5px;
+      border: solid 1px #c09066;
+      height: 20px;
+      background-color: antiquewhite;
+      color: #454b5c;
+      font-size: 1.3rem;
+      border-radius: 0.5rem;
+    }
+    .ct-input-txt {
+      height: 80px;
+      resize: none;
+    }
+    .ct-button {
+      background-color: #3a3d46;
+      color: #c09066;
+      cursor: pointer;
+      font-size: 1.2rem;
+      border-radius: 10px;
+      margin: 35px auto;
+      padding: 10px 20px;
+      border: solid 1px;
+    }
+  }
 }
 
 .iFrameContainer {
-    width: 100vw;
-    height: 50vh;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 5vh;
-    iframe {
-        width: 80vw;
-        height: 100%;
-    }
+  width: 100vw;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5vh;
+  iframe {
+    width: 80vw;
+    height: 100%;
+  }
 }
 
-
 .popin {
-    position: absolute;
-    top: 30%;
-    background-color: #3A3D46;
-    margin: 30px;
-    border-radius: 2rem;
+  position: absolute;
+  top: 30%;
+  background-color: #3a3d46;
+  margin: 30px;
+  border-radius: 2rem;
 }
 .hidden {
-    display: none;
-    opacity: 0;
+  display: none;
+  opacity: 0;
 }
 .popin {
-    display: block;
-    opacity: 1;
-    transition: all 1s ease-out;
+  display: block;
+  opacity: 1;
+  transition: all 1s ease-out;
 }
 
 .popMsg {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    padding: 45px 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 45px 3px;
 
-    h3, p {
-        font-size: 22px;
-        margin: 25px 0px;
-        text-align: center;
-    }
+  h3,
+  p {
+    font-size: 22px;
+    margin: 25px 0px;
+    text-align: center;
+  }
 }
 
 #footer {
-    #networkContainer {
-        margin-top: 0;
-        margin-bottom: 1vh;
-    }
+  #networkContainer {
+    margin-top: 0;
+    margin-bottom: 1vh;
+  }
 }
-

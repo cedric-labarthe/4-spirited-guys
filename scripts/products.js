@@ -5,6 +5,8 @@ let productTarget = null;
 let popInImage = null;
 let popInDesc = null;
 let popInTitle = null;
+let popInPrice = null;
+let addToCartBtn = null;
 let productObj = {};
 let swiperEl = null;
 let mainContainer = null;
@@ -12,13 +14,17 @@ let moreInfoBtn = null;
 let lastYScrollPos = null;
 let closePopinBtn = null;
 let sections = null;
+let classArray = [];
+let actualStorage = null;
+let currentProduct = null;
 
 // Recuperation du JSON des produits
 fetchJsonProduct = () => {
   fetch('../products.json').then((response) =>
     response.json().then((obj) => {
       productObj = obj.products;
-      init();
+      setTimeout(init, 1000);
+      //init();
     })
   );
 };
@@ -27,13 +33,12 @@ init = () => {
   document.getElementById('loading').remove();
 
   mainContainer = document.getElementById('slides-main-container');
+  classArray = Object.keys(productObj);
 
   // Creation des strucures html des carousels
-  swiperCreate('monthly');
-  swiperCreate('whisky');
-  swiperCreate('rhum');
-  swiperCreate('wine');
-  swiperCreate('tapas');
+  for (const key in productObj) {
+    swiperCreate(key);
+  }
 
   sections = document.getElementsByClassName('product');
   for (let i = 0; i < sections.length; i++) {
@@ -52,18 +57,16 @@ init = () => {
   popInImage = document.getElementById('popin__img');
   popInTitle = document.getElementsByClassName('more-info-popin__title')[0];
   popInDesc = document.getElementsByClassName('more-info-popin__desc')[0];
+  popInPrice = document.getElementsByClassName('more-info-popin__price')[0];
   closePopinBtn = document.getElementById('close-popin');
   closePopinBtn.addEventListener('click', toggleOpenPopin);
+  addToCartBtn = document.getElementsByClassName('more-info-popin__add-btn')[0];
+  addToCartBtn.addEventListener('click', () => addToCart(currentProduct));
+  addToCartBtn.addEventListener('click', toggleOpenPopin);
 
   // Récuperation des images des carousels + liens avec le produit selectionné
   moreInfoBtn = document.getElementsByClassName('product__btn');
   productArray = document.getElementsByClassName('product__img');
-  for (let i = 0; i < productArray.length; i++) {
-    productArray[i].addEventListener('click', (e) => getProductInfo(e));
-    productArray[i].addEventListener('click', toggleOpenPopin);
-    moreInfoBtn[i].addEventListener('click', (e) => getProductInfo(e));
-    moreInfoBtn[i].addEventListener('click', toggleOpenPopin);
-  }
 
   burger = document.querySelector('#burgerIcon');
   burger.addEventListener('click', clickOnBurger);
@@ -80,7 +83,6 @@ handleSwiperWithScroll = () => {
 };
 
 chooseTheSliders = (centredClass) => {
-  let classArray = ['monthly', 'whisky', 'rhum', 'wine', 'tapas'];
   let filtredArray = classArray.filter((x) => x !== centredClass);
   filtredArray.forEach((x) => startStopSlider(x, 'stop'));
   startStopSlider(centredClass, 'start');
@@ -95,17 +97,25 @@ popInCreate = () => {
 };
 
 // Récupere les infos de l'élement clické
-getProductInfo = (e) => {
+getProductInfo = (p) => {
   if (!mainContainer.className.includes('hidden-slider')) {
     lastYScrollPos = window.scrollY;
   }
-  sectionSelect = productObj[e.target.classList[0]];
-  let index = sectionSelect.map((p) => p.id).indexOf(parseInt(e.target.classList[1]));
-  popInContainer.classList.add(e.target.classList[0]);
-  popInImage.setAttribute('src', sectionSelect[index].img);
-  popInDesc.innerText = sectionSelect[index].description;
-  popInTitle.innerText = sectionSelect[index].title;
-  startStopSlider(e.target.classList[0], 'stop');
+  popInImage.setAttribute('src', p.img);
+  popInDesc.innerText = p.description;
+  popInTitle.innerText = p.title;
+  popInPrice.innerText = `${p.price} €`;
+  currentProduct = p;
+};
+
+const addToCart = (p) => {
+  let cartArray = [];
+  actualStorage = localStorage.getItem('cart');
+  if (actualStorage) {
+    JSON.parse(actualStorage).forEach((x) => cartArray.push(x));
+  }
+  cartArray.push(p);
+  localStorage.setItem('cart', JSON.stringify(cartArray));
 };
 
 // Si l'on click sur le container => ferme la popIn et retire une class
@@ -113,7 +123,7 @@ clickOnPopInContainer = (e) => {
   if (e.target === e.currentTarget) {
     toggleOpenPopin();
     startStopSlider(e.target.classList[1], 'start');
-    e.target.classList.remove(e.target.classList[1]);
+    e.target.classList.remove('e.target.classList[1]');
   }
 };
 
@@ -154,7 +164,9 @@ swiperCreate = (swiperName) => {
 
   let sectionTitle = document.createElement('h2');
   sectionTitle.classList.add(swiperName, 'section__title');
-  sectionTitle.innerText = `- Our ${swiperName} selection -`;
+  sectionTitle.innerText = `- Our ${
+    swiperName.charAt(0).toUpperCase() + swiperName.slice(1)
+  } Selection -`;
 
   let sectionPresentation = document.createElement('div');
   sectionPresentation.classList.add(swiperName, 'section-pres');
@@ -174,31 +186,44 @@ swiperCreate = (swiperName) => {
   let pagin = document.createElement('div');
   pagin.classList.add('swiper-pagination');
 
+  let separation = document.createElement('div');
+  separation.classList.add('section-separation');
+
   section.appendChild(sectionPresentation);
   section.appendChild(slider);
   slider.appendChild(wrapper);
   slider.appendChild(pagin);
   mainContainer.appendChild(section);
+  if (classArray.indexOf(swiperName) !== classArray.length - 1) {
+    mainContainer.appendChild(separation);
+  }
 
-  console.log(productObj, swiperName);
-  productObj[swiperName].map((p) => {
-    let productContainer = document.createElement('div');
+  productObj[swiperName].forEach((p) => {
+    const productContainer = document.createElement('div');
     productContainer.classList.add(swiperName, 'swiper-slide', 'product__container');
 
-    let productTitle = document.createElement('h2');
+    const productTitle = document.createElement('h2');
     productTitle.classList.add(swiperName, 'product__title');
     productTitle.innerText = p.title;
     productContainer.appendChild(productTitle);
 
-    let productImg = document.createElement('img');
+    const productImg = document.createElement('img');
     productImg.classList.add(swiperName, p.id, 'product__img'); // Pour arreter le slider onClick
     productImg.setAttribute('src', p.img);
     productImg.setAttribute('alt', p.title);
+    productImg.addEventListener('click', () => {
+      getProductInfo(p);
+    });
+    productImg.addEventListener('click', toggleOpenPopin);
     productContainer.appendChild(productImg);
 
     let productBtn = document.createElement('button');
     productBtn.classList.add(swiperName, p.id, 'product__btn');
     productBtn.innerText = 'More info';
+    productBtn.addEventListener('click', () => {
+      getProductInfo(p);
+    });
+    productBtn.addEventListener('click', toggleOpenPopin);
     productContainer.appendChild(productBtn);
 
     wrapper.appendChild(productContainer);
