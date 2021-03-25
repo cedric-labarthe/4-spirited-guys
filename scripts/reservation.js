@@ -323,15 +323,18 @@ var picker = {
     var fullDate = day + "/" + month + "/" + year
 
     // (C3) UPDATE SELECTED DATE
-    document.getElementById(parent.dataset.target).value = fullDate;
+
     jourJ=new Date();
     jourJ.setHours(0,0,0,0);
     jourS=new Date(year + "/" + month + "/" + day);
     if (jourJ <= jourS){
+      document.getElementById(parent.dataset.target).value = fullDate;
+      document.getElementById("btn-form").classList.remove("btn-formHidden")
       const popin = document.querySelector(".resaPopup");
       popin.classList.toggle("popinOff");
       popin.classList.toggle("popinOffEffect");
       popin.classList.toggle("popinOnEffect");
+      
     }
     // (C4) POPUP ONLY - CLOSE THE POPUP
     if (parent.dataset.popup == "1") {

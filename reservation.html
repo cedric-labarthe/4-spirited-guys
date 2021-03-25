@@ -15,7 +15,7 @@
   <script type="text/javascript" src="/scripts/header.js"></script>
   <!--<script type="text/javascript" src="/scripts/datepicker.js"></script>-->
   <script type="text/javascript" src="/scripts/reservation.js"></script>
- 
+
 
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Raleway&display=swap" rel="stylesheet">
@@ -29,7 +29,9 @@
         <div></div>
       </div>
       <h1>- 4 Spirited Guys -</h1>
-      <svg class="navIcon" version="1.1" id="Icons" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" fill="#C09066" xml:space="preserve">
+      <svg class="navIcon" version="1.1" id="Icons" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32"
+        style="enable-background:new 0 0 32 32;" fill="#C09066" xml:space="preserve">
         <path d="M21.3,17.8c1.8-1.6,2.7-3.9,2.6-6.3c0-0.1,0-0.3,0-0.4c0,0,0,0,0,0c-0.1-0.8-0.2-1.7-0.5-2.5l-1.9-4.8
           c-0.1-0.4-0.5-0.6-0.9-0.6h-9.3c-0.4,0-0.8,0.3-0.9,0.6L8.6,8.6C8.2,9.5,8,10.5,8,11.4c0,0,0,0,0,0c0,0.1,0,0.2,0,0.3
           c0,2.3,0.9,4.5,2.6,6c1.3,1.2,2.8,1.8,4.3,2v4.1c0,2-1.3,3.7-3.2,4.2c-0.5,0.1-0.8,0.6-0.8,1.1c0.1,0.5,0.5,0.9,1,0.9h8c0,0,0,0,0,0
@@ -37,7 +39,7 @@
           c0,0,0-0.1,0.1-0.1c0,0,0,0,0-0.1c0,0,0-0.1,0-0.1c0,0,0-0.1,0-0.1c0,0,0,0,0-0.1c0-0.1,0-0.1,0-0.2c0-0.1,0-0.1-0.1-0.2
           c0-0.1-0.1-0.1-0.1-0.2c0-0.1-0.1-0.1-0.1-0.1c0,0-0.1-0.1-0.2-0.1c-0.1,0-0.1-0.1-0.2-0.1c0,0,0,0-0.1,0c-1.9-0.5-3.2-2.2-3.2-4.2
           v-4.1C18.6,19.6,20.1,18.9,21.3,17.8z M12.1,5.1h7.9l1.6,4.2c0.1,0.4,0.2,0.8,0.3,1.2C19.7,10.8,17.4,11,15,11
-          c-1.7,0-3.3-0.1-4.9-0.3c0.1-0.5,0.2-0.9,0.3-1.4L12.1,5.1z"/>
+          c-1.7,0-3.3-0.1-4.9-0.3c0.1-0.5,0.2-0.9,0.3-1.4L12.1,5.1z" />
       </svg>
     </nav>
   </header>
@@ -51,65 +53,67 @@
     </div>
     <div class="scrollingInfo" id="topInfo"></div>
 
-    <h2>Reservation</h2>
+    <h2>- Reservation -</h2>
     <p>Choose a date :</p>
-    <div class="calendarContainer">
-      <div class="calendar">
-        <div id="pick-opt"></div>
+    <div class="calendarForm">
+      <div class=" calendarContainer">
+        <div class="calendar">
+          <div id="pick-opt"></div>
+        </div>
       </div>
-    </div>
-    <div class="resaPopup popinOff popinOffEffect">
-      <form class="resaForm" action="#">
-        <input type="text" name="date" id="date" disabled placeholder="DD-MM-YYYY">
-        <div class="howManyContainer">
-          <label for="howMany">How many</label>
-          <select name="howMany" id="howMany">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-            <option value="+10">+10</option>
-          </select>
-        </div>
-        <div class="hourContainer">
-          <label for="hour">Hour</label>
-          <select name="hour" id="hour">
-            <option value="17:00">17:00</option>
-            <option value="17:30">17:30</option>
-            <option value="18:00">18:00</option>
-            <option value="18:30">18:30</option>
-            <option value="19:00">19:00</option>
-            <option value="19:30">19:30</option>
-            <option value="20:00">20:00</option>
-            <option value="20:30">20:30</option>
-            <option value="21:00">21:00</option>
-            <option value="21:30">21:30</option>
-            <option value="22:00">22:00</option>
-            <option value="22:30">22:30</option>
-            <option value="23:00">23:00</option>
-            <option value="23:30">23:30</option>
-          </select>
-        </div>
-        <input type="text" name="lastName" id="lastName" placeholder="Last Name" required>
-        <input type="tel" name="phone" id="phone" placeholder="+33 6 12 34 56 78" required>
-        <input type="email" name="email" id="email" placeholder="bestclient@4sg.com" required>
-        <button type="submit" id="btn-form">ENVOYER</button>
-        <div>
-          <p class="resaValHidden" id="val-p1">
-            Your reservation has been validated !
-          </p>
-          <p class="resaValHidden" id="val-p2">
-            We've sent you a recapitulative by mail ;)
-          </p>
-        </div>
-        <a href="./index.html" class="resaValHidden" id="val-ok">OK</a>
-      </form>
+      <div class="resaPopup popinOff popinOffEffect">
+        <form class="resaForm" action="#">
+          <input type="text" name="date" id="date" disabled placeholder="DD-MM-YYYY">
+          <div class="howManyContainer">
+            <label for="howMany">How many</label>
+            <select name="howMany" id="howMany">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="+10">+10</option>
+            </select>
+          </div>
+          <div class="hourContainer">
+            <label for="hour">Hour</label>
+            <select name="hour" id="hour">
+              <option value="17:00">17:00</option>
+              <option value="17:30">17:30</option>
+              <option value="18:00">18:00</option>
+              <option value="18:30">18:30</option>
+              <option value="19:00">19:00</option>
+              <option value="19:30">19:30</option>
+              <option value="20:00">20:00</option>
+              <option value="20:30">20:30</option>
+              <option value="21:00">21:00</option>
+              <option value="21:30">21:30</option>
+              <option value="22:00">22:00</option>
+              <option value="22:30">22:30</option>
+              <option value="23:00">23:00</option>
+              <option value="23:30">23:30</option>
+            </select>
+          </div>
+          <input type="text" name="lastName" id="lastName" placeholder="Last Name" required>
+          <input type="tel" name="phone" id="phone" placeholder="+33 6 12 34 56 78" required>
+          <input type="email" name="email" id="email" placeholder="bestclient@4sg.com" required>
+          <button type="submit" id="btn-form" class="btn-formHidden">ENVOYER</button>
+          <div>
+            <p class="resaValHidden" id="val-p1">
+              Your reservation has been validated !
+            </p>
+            <p class="resaValHidden" id="val-p2">
+              We've sent you a recapitulative by mail ;)
+            </p>
+          </div>
+          <a href="./index.html" class="resaValHidden" id="val-ok">OK</a>
+        </form>
+      </div>
     </div>
     <div id="footer">
       <div id="networkContainer">
