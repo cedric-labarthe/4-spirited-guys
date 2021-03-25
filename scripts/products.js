@@ -17,6 +17,8 @@ let sections = null;
 let classArray = [];
 let actualStorage = null;
 let currentProduct = null;
+let footer = null;
+let mainTitle = null;
 
 // Recuperation du JSON des produits
 fetchJsonProduct = () => {
@@ -24,13 +26,14 @@ fetchJsonProduct = () => {
     response.json().then((obj) => {
       productObj = obj.products;
       setTimeout(init, 1000);
-      //init();
     })
   );
 };
 
 init = () => {
   document.getElementById('loading').remove();
+
+  mainTitle = document.getElementById('mainTitle');
 
   mainContainer = document.getElementById('slides-main-container');
   classArray = Object.keys(productObj);
@@ -63,7 +66,9 @@ init = () => {
   addToCartBtn = document.getElementsByClassName('more-info-popin__footer-add-btn')[0];
   addToCartBtn.addEventListener('click', () => addToCart(currentProduct));
   addToCartBtn.addEventListener('click', toggleOpenPopin);
-  document.getElementById('footer').className = 'visible';
+
+  footer = document.getElementById('footer');
+  footer.classList.remove('hidden');
 
   // Récuperation des images des carousels + liens avec le produit selectionné
   moreInfoBtn = document.getElementsByClassName('product__btn');
@@ -145,11 +150,15 @@ toggleOpenPopin = () => {
     popInContainer.classList.toggle('popin-closed');
   }
 
-  if (mainContainer.className.includes('hidden-slider')) {
-    mainContainer.classList.remove('hidden-slider');
+  if (mainContainer.className.includes('hidden')) {
+    mainTitle.classList.remove('hidden');
+    mainContainer.classList.remove('hidden');
+    footer.classList.remove('hidden');
     window.scroll(0, lastYScrollPos);
   } else {
-    mainContainer.classList.add('hidden-slider');
+    mainTitle.classList.add('hidden');
+    mainContainer.classList.add('hidden');
+    footer.classList.add('hidden');
   }
 };
 
@@ -171,6 +180,7 @@ swiperCreate = (swiperName) => {
 
   let sectionPresentation = document.createElement('div');
   sectionPresentation.classList.add(swiperName, 'section-pres');
+
   let sectionDescription = document.createElement('p');
   sectionDescription.classList.add('section-desc');
   switch (swiperName) {
@@ -228,7 +238,7 @@ swiperCreate = (swiperName) => {
     productContainer.appendChild(productTitle);
 
     const productImg = document.createElement('img');
-    productImg.classList.add(swiperName, p.id, 'product__img'); // Pour arreter le slider onClick
+    productImg.classList.add(swiperName, p.id, 'product__img');
     productImg.setAttribute('src', p.img);
     productImg.setAttribute('alt', p.title);
     productImg.addEventListener('click', () => {
