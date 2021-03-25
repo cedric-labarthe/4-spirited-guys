@@ -1,0 +1,207 @@
+main {
+  margin-top: 15vh;
+  margin-bottom: 5vh;
+  color: antiquewhite;
+  text-align: center;
+}
+
+main h2 {
+  margin: 2vh 0 2vh 0;
+  font-family: 'Poiret One', cursive;
+  font-size: 1.5rem;
+  color: #c09066;
+}
+
+main p {
+  text-align: left;
+  margin: 5vh auto 2vh 13%;
+}
+
+main .calendarContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 22vh;
+}
+
+main .calendarContainer .calendar {
+  background-color: grey;
+}
+
+main .popinOff {
+  visibility: hidden;
+}
+
+main .popinOffEffect {
+  -webkit-animation: 0.2s fadeout;
+          animation: 0.2s fadeout;
+}
+
+@-webkit-keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+main .popinOnEffect {
+  -webkit-animation: 0.4s fadein;
+          animation: 0.4s fadein;
+}
+
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+main .resaPopup {
+  position: fixed;
+  top: 10vh;
+  left: 0;
+  width: 100%;
+  height: 90vh;
+  background-color: rgba(31, 31, 31, 0.801);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .resaPopup .resaForm {
+  width: 80%;
+  height: 70vh;
+  background-color: #454b5c;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: antiquewhite;
+  border-radius: 0.5rem;
+}
+
+main .resaPopup .resaForm input {
+  height: 5vh;
+  font-size: 1.5rem;
+}
+
+main .resaPopup .resaForm #date,
+main .resaPopup .resaForm #lastName,
+main .resaPopup .resaForm #phone,
+main .resaPopup .resaForm #email {
+  display: block;
+  width: 80%;
+  border-radius: 0.5rem;
+  background-color: antiquewhite;
+  color: grey;
+}
+
+main .resaPopup .resaForm #date {
+  background-color: #454b5c;
+}
+
+main .resaPopup .resaForm #date {
+  width: 60%;
+  text-align: center;
+}
+
+main .resaPopup .resaForm .howManyContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 80%;
+}
+
+main .resaPopup .resaForm .hourContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 80%;
+}
+
+main .resaPopup .resaForm label {
+  height: 5vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.2rem;
+}
+
+main .resaPopup .resaForm #howMany,
+main .resaPopup .resaForm #hour {
+  height: 5vh;
+  width: 40%;
+  font-size: 1.2rem;
+  background-color: antiquewhite;
+  color: #3a3d46;
+}
+
+main .resaPopup .resaForm #btn-form,
+main .resaPopup .resaForm #val-ok {
+  background-color: #3a3d46;
+  color: #c09066;
+  cursor: pointer;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  padding: 10px 20px;
+  border: solid 1px;
+  text-decoration: none;
+}
+
+main .resaPopup .resaForm .resaValHidden {
+  display: none;
+}
+
+main .resaPopup .resaForm #val-p1,
+main .resaPopup .resaForm #val-p2 {
+  margin: 5vh 0;
+  text-align: center;
+}
