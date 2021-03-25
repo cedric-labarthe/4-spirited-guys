@@ -272,11 +272,8 @@ const swiperConf = {
       slidesPerView: 2,
       spaceBetween: 20,
     },
-    768: {
-      slidesPerView: 4,
-      spaceBetween: 40,
-    },
     1024: {
+      with: 40,
       effect: 'slide',
       slidesPerView: 3,
       centeredSlides: false,

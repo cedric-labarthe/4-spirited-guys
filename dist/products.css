@@ -5,6 +5,13 @@ main {
   text-align: center;
 }
 
+main h2 {
+  margin: 2vh 0 2vh 0;
+  font-family: 'Poiret One', cursive;
+  font-size: 1.5rem;
+  color: #c09066;
+}
+
 main #footer {
   visibility: hidden;
 }
@@ -288,11 +295,15 @@ main .more-info-popin .more-info-popin__close-btn .close-x {
   }
   main .product .swiper-container {
     height: auto;
-    width: 60%;
+    width: 80%;
+    padding-right: 2%;
   }
   main .product .swiper-slide {
     height: auto;
-    width: 40%;
+    width: 30%;
+  }
+  main .product .swiper-pagination {
+    bottom: 5%;
   }
   main .more-info-popin {
     width: 40%;
