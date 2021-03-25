@@ -5,6 +5,14 @@ main {
   text-align: center;
 }
 
+main #footer {
+  visibility: hidden;
+}
+
+main #footer.visible {
+  visibility: visible;
+}
+
 main .hidden-slider {
   display: none;
 }
@@ -106,9 +114,7 @@ main .product .swiper-wrapper .swiper-slide .product__img {
 }
 
 main .product .swiper-wrapper .swiper-slide .product__btn {
-  margin-top: auto;
-  background: #c09066;
-  border-radius: 5px;
+  padding: 5px 10px;
 }
 
 main .product .swiper-pagination {
@@ -188,6 +194,8 @@ main .more-info-popin__img {
 }
 
 main .more-info-popin__desc {
+  text-align: justify;
+  padding: 5% 4% 0 4%;
   margin: 2%;
   border: 1px solid #c09066;
   border-radius: 5px;
@@ -195,13 +203,33 @@ main .more-info-popin__desc {
   overflow: scroll;
 }
 
-main .more-info-popin__add-btn {
+main .more-info-popin__footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+
+main .more-info-popin__footer-price {
+  margin: 5%;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+main .more-info-popin__footer-add-btn {
   margin: 5%;
   -ms-flex-item-align: end;
       align-self: flex-end;
 }
 
-main .more-info-popin button {
+main .more-info-popin .more-info-popin__close-btn {
   width: 30px;
   height: 30px;
   padding: 0;
@@ -211,7 +239,7 @@ main .more-info-popin button {
       align-self: flex-end;
 }
 
-main .more-info-popin button .close-x {
+main .more-info-popin .more-info-popin__close-btn .close-x {
   stroke: #c09066;
   fill: transparent;
   stroke-linecap: round;

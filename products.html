@@ -23,7 +23,6 @@
     <script src="/scripts/header.js"></script>
     <script src="/scripts/products-list.js"></script>
     <script src="/scripts/products.js"></script>
-
   </head>
 
   <body>
@@ -60,7 +59,7 @@
 
       <div class="more-info-container" id="popInContainer">
         <div class="more-info-popin">
-          <button id="close-popin">
+          <button class="more-info-popin__close-btn" id="close-popin">
             <svg viewbox="0 0 40 40">
               <path class="close-x" d="M 10,10 L 30,30 M 30,10 L 10,30" />
             </svg>
@@ -68,19 +67,22 @@
           <h2 class="more-info-popin__title">Product name</h2>
           <img class="more-info-popin__img" id="popin__img" src="" alt="product image" />
           <p class="more-info-popin__desc">Blabla about the product</p>
-          <p class="more-info-popin__price"></p>
-          <input class="more-info-popin__add-btn" type="button" value="Add to cart" />
+          <div class="more-info-popin__footer">
+            <p class="more-info-popin__footer-price"></p>
+            <button class="more-info-popin__footer-add-btn">Add to cart</button>
+          </div>
         </div>
       </div>
       <div id="footer">
         <div id="networkContainer">
-          <a href="https://www.facebook.com/VoidShelter"><img src="./images/picto_fb.png"></a>
-          <a href="https://www.wildcodeschool.com/"><img src="./images/picto_insta.png"></a>
-          <a href="https://github.com/Poppe-A/4-spirited-guys"><img src="./images/picto_twitter.png"></a>
+          <a href="https://www.facebook.com/VoidShelter"><img src="./images/picto_fb.png" /></a>
+          <a href="https://www.wildcodeschool.com/"><img src="./images/picto_insta.png" /></a>
+          <a href="https://github.com/Poppe-A/4-spirited-guys"
+            ><img src="./images/picto_twitter.png"
+          /></a>
         </div>
       </div>
       <div class="scrollingInfo infoVisible" id="bottomInfo"></div>
-
     </main>
   </body>
 </html>
