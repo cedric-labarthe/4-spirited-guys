@@ -92,14 +92,13 @@ main {
         background: $goldColor;
       }
     }
-
-    .section-separation {
-      width: 80%;
-      height: 2px;
-      background-color: $darkerMainColor;
-      border-radius: 1px;
-      margin: auto;
-    }
+  }
+  .section-separation {
+    width: 80%;
+    height: 2px;
+    background-color: $darkerMainColor;
+    border-radius: 1px;
+    margin: auto;
   }
 
   .more-info-container {
