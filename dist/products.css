@@ -5,8 +5,8 @@ main {
   text-align: center;
 }
 
-main h2 {
-  margin: 2vh 0 2vh 0;
+main .page-title {
+  margin: 15vh 0 2vh 0;
   font-family: 'Poiret One', cursive;
   font-size: 1.5rem;
   color: #c09066;
