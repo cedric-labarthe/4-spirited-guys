@@ -119,29 +119,39 @@ main {
 
 .popin {
   position: fixed;
-  width: 95%;
+  width: 100vw;
   background-color: rgba(31, 31, 31, 0.9);
-  left: 11px;
-  height: 84vh;
-  top: 13vh;
-  border-radius: 2rem;
+  height: 90vh;
+  top: 10vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
 }
 
-.hidden {
-  display: none;
-  opacity: 0;
+.popin.show {
+  visibility: visible;
+}
+
+.popin.opacityMax {
+  opacity: 1;
 }
 
 .popMsg {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 80vw;
+  left: 10vw;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -161,56 +171,6 @@ main {
   font-size: 22px;
   margin: 30px 0px;
   text-align: center;
-}
-
-.popinOff {
-  visibility: hidden;
-}
-
-.popinOffEffect {
-  -webkit-animation: 0.2s fadeout;
-          animation: 0.2s fadeout;
-}
-
-@-webkit-keyframes fadeout {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes fadeout {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-.popinOnEffect {
-  -webkit-animation: 0.4s fadein;
-          animation: 0.4s fadein;
-}
-
-@-webkit-keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }
 
 @media screen and (min-width: 500px) {

@@ -95,22 +95,30 @@ main {
 
 .popin {
     position: fixed;
-    width: 95%;
+    width: 100vw;
     background-color: rgba(31, 31, 31, 0.9);
-    left: 11px;
-    height: 84vh;
-    top: 13vh;
-    border-radius: 2rem;
+    height: 90vh;
+    top: 10vh;
     display: flex;
+    justify-content: center;
     align-items: center;
-}
-.hidden {
-  display: none;
-  opacity: 0;
-}
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s;
+
+    &.show {
+        visibility: visible;
+    }
+
+    &.opacityMax {
+        opacity: 1;
+    }
+  }
 
 .popMsg {
     display: flex;
+    width: 80vw;
+    left: 10vw;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
@@ -125,28 +133,6 @@ main {
         text-align: center;
     }
 }
-.popinOff {
-    //display: none;
-    visibility: hidden;
-  }
-
-  .popinOffEffect {
-    animation : 0.2s fadeout;
-  }
-
-  @keyframes fadeout {
-    from{opacity : 1;}
-    to{opacity : 0;}
-  }
-
-  .popinOnEffect {
-    animation : 0.4s fadein;
-  }
-
-  @keyframes fadein {
-    from{opacity : 0;}
-    to{opacity : 1;}
-  }
 
   @media screen and (min-width: 500px) {
 

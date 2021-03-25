@@ -7,7 +7,7 @@ let inputMsg = null;
 
 function init() {
 
-  popin = document.querySelector(".popin");
+  popin = document.querySelector(".popin"); 
   btn = document.getElementById("btn-form");
   inputName = document.getElementById("name");
   inputMail = document.getElementById("email");
@@ -20,7 +20,7 @@ function init() {
     clickOnPopinContainer(evt);
   });
 
-  burger.addEventListener("click", burgerClosesPopin);
+  burger.addEventListener("click", clickOnPopinContainer);
 }
 
 function popup() {
@@ -30,26 +30,21 @@ function popup() {
 }
 
 function popMsg() {
-  popin.classList.toggle("hidden");
+  popin.classList.add("show");
+  popin.classList.add("opacityMax");
+}
+
+
+closePopin = () => {
+  popin.classList.remove("opacityMax");
+  setTimeout(() => {
+      popin.classList.remove("show");
+  }, 500);
 }
 
 clickOnPopinContainer = (e) => {
-  if (e.target === e.currentTarget) {
-    popin.classList.toggle("popinOffEffect");
-    popin.classList.toggle("popinOnEffect");
-    setTimeout(() => {
-      popin.classList.toggle("popinOff");
-    }, 170);
-  }
-};
-
-function burgerClosesPopin() {
-  if (!popin.classList.contains("popinOff")) {
-    popin.classList.toggle("popinOffEffect");
-    popin.classList.toggle("popinOnEffect");
-    setTimeout(() => {
-      popin.classList.toggle("popinOff");
-    }, 190);
+  if(e.target === e.currentTarget) {
+      closePopin();
   }
 }
 
