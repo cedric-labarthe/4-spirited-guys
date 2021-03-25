@@ -97,6 +97,9 @@ main .product .swiper-wrapper .swiper-slide {
       justify-content: space-around;
   width: 60%;
   overflow: hidden;
+  border: solid 1px #c09066;
+  border-radius: 0.5rem;
+  margin-bottom: 5px;
 }
 
 main .product .swiper-wrapper .swiper-slide .product__title {
@@ -114,7 +117,7 @@ main .product .swiper-wrapper .swiper-slide .product__img {
 }
 
 main .product .swiper-wrapper .swiper-slide .product__btn {
-  margin-top: 1.5%;
+  margin: 2.5% 0;
   padding: 5px 10px;
 }
 

@@ -252,7 +252,7 @@ swiperCreate = (swiperName) => {
 // Object configuration de swiper
 const swiperConf = {
   init: false, // Permet d'initialiser plus tard
-  effect: 'coverflow', // Ou slide, à vous de dire ;)
+  effect: 'slide', // Ou slide, à vous de dire ;)
   followFinger: false,
   centeredSlides: true,
   slidesPerView: 'auto',

@@ -71,6 +71,9 @@ main {
         justify-content: space-around;
         width: 60%;
         overflow: hidden;
+        border: solid 1px $goldColor;
+        border-radius: 0.5rem;
+        margin-bottom: 5px;
 
         .product__title {
           margin: 8% 0 5% 0;
@@ -87,7 +90,7 @@ main {
         }
 
         .product__btn {
-          margin-top: 1.5%;
+          margin: 2.5% 0;
           padding: 5px 10px;
         }
       }
