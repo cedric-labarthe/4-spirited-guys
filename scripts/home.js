@@ -1,9 +1,11 @@
 let topVisible = false;
 let bottomVisible = true;
 let swiper =null;
+let buttonValid = null;
 
 init = () => {
     document.addEventListener("scroll", handleScroll);
+    buttonValid = document.getElementById("validCard");
 
     if(window.location.pathname === "/index.html") {
         swiper = new Swiper('.swiper-container', {
@@ -40,7 +42,12 @@ handleScroll = (e) => {
     let scrollPosition = getScrollPercent();
     let topScrollInfo = document.getElementById("topInfo");
     let bottomScrollInfo = document.getElementById("bottomInfo");
+    console.log("egeg", buttonValid)
 
+    if (buttonValid) {
+        console.log("efe")
+        buttonValid.innerText = scrollPosition;
+    }
     if(scrollPosition > 0 && !topVisible) {
 
         topScrollInfo.classList.add("infoVisible");
@@ -50,11 +57,11 @@ handleScroll = (e) => {
         topVisible = false;
     }
 
-    if(scrollPosition < 100 && !bottomVisible) {
+    if(scrollPosition < 99 && !bottomVisible) {
         bottomScrollInfo.style.visibility = "visible";
         bottomScrollInfo.classList.add("infoVisible");
         bottomVisible = true;
-    } else if (scrollPosition >= 100 && bottomVisible) {
+    } else if (scrollPosition >= 99 && bottomVisible) {
         bottomScrollInfo.classList.remove("infoVisible");
         bottomVisible = false;
         setTimeout(() => {
