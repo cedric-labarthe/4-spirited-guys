@@ -13,12 +13,23 @@
         margin-top: 3vh;
         padding: 1vh;
         
-        span {
-            line-height: 110%;
-            font-family: 'Poiret One', cursive;
-            font-size: 1.3rem;
-            color: #c09066;
+        .innerContainer {
+            width: 85%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            img {
+                width:15%;
+            }
+
+            span {
+                line-height: 110%;
+                font-family: 'Poiret One', cursive;
+                font-size: 1.3rem;
+                color: #c09066;
+            }
         }
+      
        
        
         .deleteButton {
@@ -31,9 +42,7 @@
             font-size: 32px;
         }
 
-        img {
-            width:15%;
-        }
+        
 
     }
 }
@@ -144,6 +153,8 @@
     #cartContainer {  
         margin-bottom: 0vh;
         .productContainer {
+            width: 40vw;
+
             span {
                 font-size: 2rem;
             }
