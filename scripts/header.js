@@ -7,7 +7,7 @@ const menuItems = [
   {title: "Our products", img: "/images/menu_whisky.jpg", link: "products.html"},
   {title: "Reservation", img: "/images/home_resto.jpg", link: "reservation.html"},
   {title: "Contact", img: "/images/home_cocktail.jpg", link: "contact.html"},
-  {title: "About us", img: "/images/menu_whisky.jpg", link: "aboutus.html"},
+  {title: "About us", img: "/images/menu_whisky.jpg", link: "about.html"},
   {title: "My cart", img: "/images/menu_resto.jpg", link: "cart.html"}
 ]
 
