@@ -1,9 +1,11 @@
 let topVisible = false;
 let bottomVisible = true;
 let swiper =null;
+let buttonValid = null;
 
 init = () => {
     document.addEventListener("scroll", handleScroll);
+    buttonValid = document.getElementById("validCard");
 
     if(window.location.pathname === "/index.html") {
         swiper = new Swiper('.swiper-container', {
@@ -40,11 +42,11 @@ handleScroll = (e) => {
     let scrollPosition = getScrollPercent();
     let topScrollInfo = document.getElementById("topInfo");
     let bottomScrollInfo = document.getElementById("bottomInfo");
+    console.log("egeg", buttonValid)
 
-    let buttonPurch = document.getElementById("validCart");
-
-    if (buttonPurch) {
-        buttonPurch.innerText = scrollPosition
+    if (buttonValid) {
+        console.log("efe")
+        buttonValid.innerText = scrollPosition;
     }
     if(scrollPosition > 0 && !topVisible) {
 
