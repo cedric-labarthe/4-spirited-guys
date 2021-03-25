@@ -51,16 +51,20 @@ main .product {
   padding-top: 2%;
 }
 
+main .product .section-pres {
+  margin: 4%;
+}
+
 main .product .section-desc {
+  line-height: 100%;
   display: none;
 }
 
 main .product .section__title {
-  margin: 8% 0 2% 0;
-  height: 12%;
+  margin: 8% 0 5% 0;
   font-family: 'Poiret One', cursive;
   text-decoration: underline;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: #c09066;
 }
 
@@ -273,7 +277,7 @@ main .more-info-popin .more-info-popin__close-btn .close-x {
             flex-direction: row-reverse;
   }
   main .product .section-pres {
-    max-width: 30%;
+    max-width: 45%;
   }
   main .product .section-desc {
     display: block;
