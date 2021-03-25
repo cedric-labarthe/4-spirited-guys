@@ -41,6 +41,11 @@ handleScroll = (e) => {
     let topScrollInfo = document.getElementById("topInfo");
     let bottomScrollInfo = document.getElementById("bottomInfo");
 
+    let buttonPurch = document.getElementById("validCart");
+
+    if (buttonPurch) {
+        buttonPurch.innerText = scrollPosition
+    }
     if(scrollPosition > 0 && !topVisible) {
 
         topScrollInfo.classList.add("infoVisible");
@@ -50,11 +55,11 @@ handleScroll = (e) => {
         topVisible = false;
     }
 
-    if(scrollPosition < 100 && !bottomVisible) {
+    if(scrollPosition < 99 && !bottomVisible) {
         bottomScrollInfo.style.visibility = "visible";
         bottomScrollInfo.classList.add("infoVisible");
         bottomVisible = true;
-    } else if (scrollPosition >= 100 && bottomVisible) {
+    } else if (scrollPosition >= 99 && bottomVisible) {
         bottomScrollInfo.classList.remove("infoVisible");
         bottomVisible = false;
         setTimeout(() => {
