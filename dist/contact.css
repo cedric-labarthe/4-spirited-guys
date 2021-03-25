@@ -213,5 +213,6 @@ main {
     height: 55%;
     top: 30%;
     left: 35%;
+    border-radius: 1rem;
   }
 }
