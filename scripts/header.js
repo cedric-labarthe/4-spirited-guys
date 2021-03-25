@@ -7,7 +7,8 @@ const menuItems = [
   {title: "Our products", img: "/images/menu_whisky.jpg", link: "products.html"},
   {title: "Reservation", img: "/images/home_resto.jpg", link: "reservation.html"},
   {title: "Contact", img: "/images/home_cocktail.jpg", link: "contact.html"},
-  {title: "About us", img: "/images/menu_whisky.jpg", link: "aboutus.html"}
+  {title: "About us", img: "/images/menu_whisky.jpg", link: "aboutus.html"},
+  {title: "My cart", img: "/images/menu_resto.jpg", link: "cart.html"}
 ]
 
 init = () => {
@@ -20,6 +21,18 @@ init = () => {
     burger.addEventListener('mouseenter', highLight);
     burger.addEventListener('mouseleave', highLight);
     menu.addEventListener('click', (evt) => {clickOnMenuContainer(evt)});
+
+    let card = JSON.parse(localStorage.getItem("cart"));
+  
+    if(card && card.length) {
+      let navIcon = document.querySelector(".navIcon");
+      navIcon.src = "../images/shopping-cart.png";
+      navIcon.classList.add("clickable");
+      navIcon.addEventListener("click", () => {
+        window.location = location.origin + "/index.html";
+      })
+
+    }
 }
 
 buildMenu = () => {

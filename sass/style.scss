@@ -1,178 +1,203 @@
-$darkerMainColor: #3A3D46 ;
-$lighterMainColor: #454B5C;
-$goldColor: #C09066;
+$darkerMainColor: #3a3d46;
+$lighterMainColor: #454b5c;
+$goldColor: #c09066;
 $globalTextColor: antiquewhite;
 
 //font-family: 'Poiret One', cursive; <= Header
 //font-family: 'Raleway', sans-serif; <= Body elements
 
 body {
-    width: 100vw;
-    background-color: $lighterMainColor;
-    color: $goldColor;
-    font-family: sans-serif;
-    line-height: 3vh;
-}::-webkit-scrollbar {
-    width: 0px;
-    background: transparent; /* make scrollbar transparent */
+  width: 100vw;
+  background-color: $lighterMainColor;
+  color: $goldColor;
+  font-family: sans-serif;
+  line-height: 3vh;
+}
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* make scrollbar transparent */
 }
 
-
 .golden {
-    color: $goldColor;
+  color: $goldColor;
 }
 
 header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10vh;
+  background-color: $darkerMainColor;
+  z-index: 10;
+
+  nav {
     height: 10vh;
-    background-color: $darkerMainColor;
-    z-index: 10;
-
-    nav {
-        height: 10vh;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-family: 'Poiret One', cursive;
-        padding: 0 3% 0 5%;
-        box-sizing: border-box;
-        
-        h1 {
-            font-size: 1.7rem;
-            margin-left: 2%;
-        }
-
-        .navIcon {
-            height: 60%;
-        }
-        
-        .burgerIcon{
-            width: 40px;
-            cursor: pointer;
-        
-
-            &::before,
-            &::after,
-            div {
-                background: $goldColor;
-                border-radius : 4px;
-                content: "";
-                display: block;
-                height: 3px;
-                margin: 9px 0;
-                transition: 0.5s;
-            }
-        
-            &.active::before {
-                transform: translateY(12px) rotate(135deg);
-            }
-            
-        
-            &.active::after {
-                transform: translateY(-12px) rotate(-135deg);
-            }
-            &.active div, &.active div {
-                transform: scale(0);
-            }
-        }    
-    }
-}
-
-.menuContainer {
-    position: fixed;
-    top: 10vh;
-    left: -100%;
-    background-color: rgba(31, 31, 31, 0.801);
     width: 100%;
-    height: 90vh;
-    transition: 0.4s ease-in-out;
-    z-index: 10;
-}
-
-.menu {
-    height : 60vh;
-    width : 85vw;
-    background-color: $darkerMainColor;
-    text-align: left;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-family: 'Poiret One', cursive;
+    padding: 0 3% 0 5%;
+    box-sizing: border-box;
 
-    .linkContainer {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 100%;
-        padding: 10% 0;
-        box-sizing: border-box;
-    }
-    a {
-        text-decoration: none;
-        color : $goldColor;
-        padding-left : 20px;
-        font-size: 1.1rem;
-        
-        &:hover {
-            color : $globalTextColor;
-
-        }
+    h1 {
+      font-size: 1.7rem;
+      margin-left: 2%;
     }
 
-    #menuImg {
-        width: 30%;
-        height: 70%;
-        margin-right: 20px;
-        background-image: url('/images/menu_whisky.jpg');
-        background-position: center;
-        background-size: cover;
+    .navIcon {
+      height: 60%;
+      &.clickable:hover {
+        background-color: red;
+      }
     }
+
+    .burgerIcon {
+      width: 40px;
+      cursor: pointer;
+
+      &::before,
+      &::after,
+      div {
+        background: $goldColor;
+        border-radius: 4px;
+        content: '';
+        display: block;
+        height: 3px;
+        margin: 9px 0;
+        transition: 0.5s;
+      }
+
+      &.active::before {
+        transform: translateY(12px) rotate(135deg);
+      }
+
+      &.active::after {
+        transform: translateY(-12px) rotate(-135deg);
+      }
+      &.active div,
+      &.active div {
+        transform: scale(0);
+      }
+    }
+  }
+}
+
+.scrollingInfo {
+  height: 10vh;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.5s;
+  z-index: 9;
+  pointer-events: none;
+
+  &#topInfo {
+    top: 10vh;
+    background: linear-gradient(0deg, rgba(69, 75, 92, 0) 0%, $darkerMainColor 100%);
+  }
+
+  &#bottomInfo {
+    bottom: 0;
+    background: linear-gradient(0deg, $darkerMainColor 0%, rgba(69, 75, 92, 0) 100%);
+  }
+
+  &.infoVisible {
+    opacity: 100;
+  }
+}
+
+.menuContainer {
+  position: fixed;
+  top: 10vh;
+  left: -100%;
+  background-color: rgba(31, 31, 31, 0.801);
+  width: 100%;
+  height: 90vh;
+  transition: 0.4s ease-in-out;
+  z-index: 10;
+}
+
+.menu {
+  height: 60vh;
+  width: 85vw;
+  background-color: $darkerMainColor;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .linkContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 10% 0;
+    box-sizing: border-box;
+  }
+  a {
+    text-decoration: none;
+    color: $goldColor;
+    padding-left: 20px;
+    font-size: 1.1rem;
+
+    &:hover {
+      color: $globalTextColor;
+    }
+  }
+
+  #menuImg {
+    width: 30%;
+    height: 70%;
+    margin-right: 20px;
+    background-image: url('/images/menu_whisky.jpg');
+    background-position: center;
+    background-size: cover;
+  }
 }
 
 .open {
-    left: 0;
+  left: 0;
 }
 
 #footer {
+  display: flex;
+  justify-content: center;
+
+  #networkContainer {
+    width: 80%;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+    margin-top: 5vh;
+    padding-top: 2vh;
+    border-top: solid 2px $darkerMainColor;
 
-    #networkContainer {
-        width: 80%;
-        display: flex;
-        justify-content: space-evenly;
-        margin-top: 5vh;
-        padding-top: 2vh;
-        border-top: solid 2px $darkerMainColor;
+    a {
+      display: block;
 
-        a {
-            display: block;
-
-            img {
-                height: 6vh;
-            }
-        }
+      img {
+        height: 6vh;
+      }
     }
+  }
 }
 
 @media screen and (min-width: 500px) {
-    .menu {
-        height: 80vh;
+  .menu {
+    height: 80vh;
 
-        .linkContainer {
-            a {
-                padding-left : 15vw;
-            }
-        }
-
-        #menuImg {
-            width: 20%;
-            height: 70%;
-            margin-right: 10vh;
-
-        }
+    .linkContainer {
+      a {
+        padding-left: 15vw;
+      }
     }
+
+    #menuImg {
+      width: 20%;
+      height: 70%;
+      margin-right: 10vh;
+    }
+  }
 }

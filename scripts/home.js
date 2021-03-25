@@ -2,25 +2,33 @@ let topVisible = false;
 let bottomVisible = true;
 let swiper =null;
 
-
-
 init = () => {
     document.addEventListener("scroll", handleScroll);
-    console.log("onload home")
-    swiper = new Swiper('.swiper-container', {
-        slidesPerView: 2,
-        spaceBetween: 30,
-        centeredSlides: true,
-        loop: true,
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-      });
+
+    if(window.location.pathname === "/index.html") {
+        swiper = new Swiper('.swiper-container', {
+            slidesPerView: 2,
+            spaceBetween: 30,
+            centeredSlides: true,
+            loop: true,
+            pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+            },
+            navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+            },
+        });
+    }
+
+    if(localStorage.getItem("cartOk") && window.location.pathname === "/index.html") {
+        document.getElementById("purchaseOK").classList.add("present");
+        setTimeout(() => {
+            document.getElementById("purchaseOK").classList.remove("present");
+            localStorage.removeItem("cartOk")
+        }, 2000);
+    }
 }
 
 setScrollInfoVisibility = () => {
@@ -28,13 +36,13 @@ setScrollInfoVisibility = () => {
     document.getElementById("bottom").style.visibility = 'visible'
 }
 
-
 handleScroll = (e) => {
     let scrollPosition = getScrollPercent();
     let topScrollInfo = document.getElementById("topInfo");
     let bottomScrollInfo = document.getElementById("bottomInfo");
 
     if(scrollPosition > 0 && !topVisible) {
+
         topScrollInfo.classList.add("infoVisible");
         topVisible = true;
     } else if (scrollPosition <= 0 && topVisible) {
@@ -53,12 +61,6 @@ handleScroll = (e) => {
             bottomScrollInfo.style.visibility = "hidden";
         }, 500);
     }
-    // if(scrollPosition === 100) {
-    //     bottomScrollInfo.style.visibility = "hidden"
-    // }
-    // if(scrollPosition === 0) {
-    //     topScrollInfo.style.visibility = "hidden"
-    // }
 }
 
 getScrollPercent = () => {

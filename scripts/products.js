@@ -62,6 +62,7 @@ init = () => {
   closePopinBtn.addEventListener('click', toggleOpenPopin);
   addToCartBtn = document.getElementsByClassName('more-info-popin__add-btn')[0];
   addToCartBtn.addEventListener('click', () => addToCart(currentProduct));
+  addToCartBtn.addEventListener('click', toggleOpenPopin);
 
   // Récuperation des images des carousels + liens avec le produit selectionné
   moreInfoBtn = document.getElementsByClassName('product__btn');
@@ -108,7 +109,6 @@ getProductInfo = (p) => {
 };
 
 const addToCart = (p) => {
-  console.log('addTocart lancé');
   let cartArray = [];
   actualStorage = localStorage.getItem('cart');
   if (actualStorage) {
@@ -116,7 +116,6 @@ const addToCart = (p) => {
   }
   cartArray.push(p);
   localStorage.setItem('cart', JSON.stringify(cartArray));
-  console.log(JSON.parse(localStorage.getItem('cart')));
 };
 
 // Si l'on click sur le container => ferme la popIn et retire une class
