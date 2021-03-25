@@ -17,24 +17,17 @@ let sections = null;
 let classArray = [];
 let actualStorage = null;
 let currentProduct = null;
-let footer = null;
 
 // Recuperation du JSON des produits
 fetchJsonProduct = () => {
-      //just for test purpose, productsList is an array present in products-list.js
-      productObj = productsList;
+  fetch('../products.json').then((response) =>
+    response.json().then((obj) => {
+      productObj = obj.products;
       setTimeout(init, 1000);
+      //init();
+    })
+  );
 };
-
-// fetchJsonProduct = () => {
-//   fetch('../products.json').then((response) =>
-//     response.json().then((obj) => {
-//       productObj = obj.products;
-//       setTimeout(init, 1000);
-//       //init();
-//     })
-//   );
-// };
 
 init = () => {
   document.getElementById('loading').remove();
@@ -60,13 +53,14 @@ init = () => {
   tapasSwiper.init();
 
   popInCreate();
+
   popInImage = document.getElementById('popin__img');
   popInTitle = document.getElementsByClassName('more-info-popin__title')[0];
   popInDesc = document.getElementsByClassName('more-info-popin__desc')[0];
-  popInPrice = document.getElementsByClassName('more-info-popin__footer-price')[0];
+  popInPrice = document.getElementsByClassName('more-info-popin__price')[0];
   closePopinBtn = document.getElementById('close-popin');
   closePopinBtn.addEventListener('click', toggleOpenPopin);
-  addToCartBtn = document.getElementsByClassName('more-info-popin__footer-add-btn')[0];
+  addToCartBtn = document.getElementsByClassName('more-info-popin__add-btn')[0];
   addToCartBtn.addEventListener('click', () => addToCart(currentProduct));
   addToCartBtn.addEventListener('click', toggleOpenPopin);
 
@@ -76,9 +70,6 @@ init = () => {
 
   burger = document.querySelector('#burgerIcon');
   burger.addEventListener('click', clickOnBurger);
-
-  footer = document.getElementById('footer');
-  footer.classList.add('visible');
 
   window.onscroll = handleSwiperWithScroll;
   let initAutoplay = ['whisky', 'rhum', 'wine', 'tapas'].forEach((x) => startStopSlider(x, 'stop'));
@@ -181,8 +172,27 @@ swiperCreate = (swiperName) => {
   sectionPresentation.classList.add(swiperName, 'section-pres');
   let sectionDescription = document.createElement('p');
   sectionDescription.classList.add('section-desc');
-  sectionDescription.innerText =
-    'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora ea suscipit, facilis itaque dolorem consectetur assumenda eveniet harum soluta numquam.';
+  switch (swiperName) {
+    case 'monthly':
+      sectionDescription.innerText =
+        'Each month, we offer you great offers on a selection of some of our best products.';
+      break;
+    case 'whisky':
+      sectionDescription.innerText =
+        'Discover the finest whiskeys from around the world (Ireland, Scotland, USA, Japan, ...)';
+      break;
+    case 'rhum':
+      sectionDescription.innerText =
+        'Travel to the Caribbean with only the best rums on the market.';
+      break;
+    case 'wine':
+      sectionDescription.innerText = 'If your taste goes for the grape, here is your happiness.';
+      break;
+    case 'tapas':
+      sectionDescription.innerText =
+        "You're hungry ? Our chef has imagined some good tapas for all taste, even for you veggie friends ;)";
+      break;
+  }
   sectionPresentation.appendChild(sectionTitle);
   sectionPresentation.appendChild(sectionDescription);
 
