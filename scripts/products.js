@@ -20,14 +20,20 @@ let currentProduct = null;
 
 // Recuperation du JSON des produits
 fetchJsonProduct = () => {
-  fetch('../products.json').then((response) =>
-    response.json().then((obj) => {
-      productObj = obj.products;
+      //just for test purpose, productsList is an array present in products-list.js
+      productObj = productsList;
       setTimeout(init, 1000);
-      //init();
-    })
-  );
 };
+
+// fetchJsonProduct = () => {
+//   fetch('../products.json').then((response) =>
+//     response.json().then((obj) => {
+//       productObj = obj.products;
+//       setTimeout(init, 1000);
+//       //init();
+//     })
+//   );
+// };
 
 init = () => {
   document.getElementById('loading').remove();

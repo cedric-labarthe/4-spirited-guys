@@ -25,18 +25,28 @@ init = () => {
     let card = JSON.parse(localStorage.getItem("cart"));
     let navIcon = document.querySelector(".navIcon");
   
+
+    /*dirty but working :
+    The goal here is to change the header picto, depending on the cart (contains product or not) 
+    and to change its color and its link
+    */
     if(card && card.length) {
-      navIcon.src = "../images/shopping-cart.png";
-      navIcon.addEventListener("mouseover", () => {
-        navIcon.src = "../images/shopping-cart-selected.png";
+      navIcon.remove();
+      const img = document.createElement("img");
+      img.className = "navIcon";
+      img.src = "../images/shopping-cart.png";
+
+      img.addEventListener("mouseover", () => {
+        img.src = "../images/shopping-cart-selected.png";
       })
-      navIcon.addEventListener("mouseleave", () => {
-        navIcon.src = "../images/shopping-cart.png";
+      img.addEventListener("mouseleave", () => {
+        img.src = "../images/shopping-cart.png";
       })
-      navIcon.classList.add("clickable");
-      navIcon.addEventListener("click", () => {
+      img.classList.add("clickable");
+      img.addEventListener("click", () => {
         window.location = location.origin + "/cart.html";
       })
+      document.querySelector("nav").appendChild(img)
     } else {
       navIcon.addEventListener("click", () => {
         window.location = location.origin + "/index.html";
