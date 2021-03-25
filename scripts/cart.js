@@ -45,11 +45,10 @@ buildCart = (cart) => {
         let price = document.createElement("span");
         price.innerText = element.price + " €"
 
-
-        product.appendChild(deleteButton);
-        product.appendChild(title);
         product.appendChild(img);
-        product.append(price)
+        product.appendChild(title);
+        product.appendChild(price)
+        product.appendChild(deleteButton);
 
         cartContainer.appendChild(product)
         if(element.price) {
