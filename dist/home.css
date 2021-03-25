@@ -1,0 +1,101 @@
+#purchaseOK {
+  position: fixed;
+  left: 12vw;
+  top: -30%;
+  width: 60vw;
+  background-color: rgba(34, 70, 0, 0.794);
+  color: antiquewhite;
+  border: 1px antiquewhite solid;
+  z-index: 15;
+  font-size: 26px;
+  padding: 3vh;
+  -webkit-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
+}
+
+#purchaseOK.present {
+  top: 0%;
+}
+
+main {
+  margin-top: 15vh;
+  margin-bottom: 1vh;
+  color: antiquewhite;
+  text-align: center;
+  --swiper-theme-color: #c09066;
+}
+
+main .swiper-container {
+  width: 100%;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+main .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  background-size: cover;
+  background-position: center;
+}
+
+main .swiper-pagination-bullet {
+  background-color: antiquewhite;
+}
+
+main h2 {
+  margin: 2vh 0 2vh 0;
+  font-family: 'Poiret One', cursive;
+  font-size: 1.5rem;
+  color: #c09066;
+}
+
+main .homeTextBox {
+  padding: 0 10px 0 10px;
+  margin: 6vh 0 6vh 0;
+}
+
+main .homeTextBox h2 {
+  margin: 4vh 0 4vh 0;
+}
+
+main .mainBanner {
+  height: 25vh;
+  background-image: url("/images/bar.jpeg");
+  background-size: cover;
+  background-position-y: -37px;
+}
+
+main .bottomPageLink {
+  margin-bottom: 5vh;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+  /* make scrollbar transparent */
+}
+
+@media screen and (min-width: 500px) {
+  body {
+    line-height: 5vh;
+  }
+  main {
+    margin-top: 20vh;
+  }
+  main .mainBanner {
+    height: 50vh;
+    background-position-y: -100px;
+    margin: 9vh 0;
+  }
+  main h2 {
+    margin: 10vh 0 10vh 0;
+  }
+  main .swiper-container {
+    margin: 5vh 0 12vh 0;
+  }
+  main .bottomPageLink {
+    margin-bottom: 15vh;
+  }
+}

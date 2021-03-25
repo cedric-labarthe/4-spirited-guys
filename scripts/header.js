@@ -7,7 +7,7 @@ const menuItems = [
   {title: "Our products", img: "/images/menu_whisky.jpg", link: "products.html"},
   {title: "Reservation", img: "/images/home_resto.jpg", link: "reservation.html"},
   {title: "Contact", img: "/images/home_cocktail.jpg", link: "contact.html"},
-  {title: "About us", img: "/images/menu_whisky.jpg", link: "aboutus.html"},
+  {title: "About us", img: "/images/menu_whisky.jpg", link: "about.html"},
   {title: "My cart", img: "/images/menu_resto.jpg", link: "cart.html"}
 ]
 
@@ -23,21 +23,40 @@ init = () => {
     menu.addEventListener('click', (evt) => {clickOnMenuContainer(evt)});
 
     let card = JSON.parse(localStorage.getItem("cart"));
+    let navIcon = document.querySelector(".navIcon");
   
+
+    /*dirty but working :
+    The goal here is to change the header picto, depending on the cart (contains product or not) 
+    and to change its color and its link
+    */
     if(card && card.length) {
-      let navIcon = document.querySelector(".navIcon");
-      navIcon.src = "../images/shopping-cart.png";
-      navIcon.addEventListener("mouseover", () => {
-        navIcon.src = "../images/shopping-cart-selected.png";
+      navIcon.remove();
+      const img = document.createElement("img");
+      img.className = "navIcon";
+      img.src = "../images/shopping-cart.png";
+
+      img.addEventListener("mouseover", () => {
+        img.src = "../images/shopping-cart-selected.png";
       })
-      navIcon.addEventListener("mouseleave", () => {
-        navIcon.src = "../images/shopping-cart.png";
+      img.addEventListener("mouseleave", () => {
+        img.src = "../images/shopping-cart.png";
       })
-      navIcon.classList.add("clickable");
-      navIcon.addEventListener("click", () => {
+      img.classList.add("clickable");
+      img.addEventListener("click", () => {
         window.location = location.origin + "/cart.html";
       })
-
+      document.querySelector("nav").appendChild(img)
+    } else {
+      navIcon.addEventListener("click", () => {
+        window.location = location.origin + "/index.html";
+      })
+      navIcon.addEventListener("mouseover", () => {
+        navIcon.style.fill = "white";
+      })
+      navIcon.addEventListener("mouseleave", () => {
+        navIcon.style.fill = "#c09066";
+      })
     }
 }
 
