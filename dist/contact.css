@@ -84,6 +84,13 @@
 }
 
 .iFrameContainer {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100vw;
   height: 50vh;
   display: -webkit-box;
@@ -92,12 +99,18 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-bottom: 5vh;
+  margin-top: 8vh;
+}
+
+.iFrameContainer h3 {
+  font-size: 1.4rem;
+  font-weight: 400;
 }
 
 .iFrameContainer iframe {
   width: 80vw;
   height: 100%;
+  margin-top: 5vh;
 }
 
 .popin {
