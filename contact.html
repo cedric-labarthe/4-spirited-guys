@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
+
+<head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Nous contacter</title>
+  <title>Nous contacter</title>
   <link rel="stylesheet" href="/dist/reset.css" type="text/css">
   <link rel="stylesheet" href="/dist/style.css" type="text/css">
   <link rel="stylesheet" href="/dist/contact.css" type="text/css">
@@ -12,44 +13,48 @@
   <script type="text/javascript" src="/scripts/header.js"></script>
 
 </head>
-  <body>
-    <header>
-      <nav>
-        <div id="burgerIcon" class="burgerIcon"><div></div></div>
-        <h1>- 4 Spirited Guys -</h1>
-        <img src='/images/icon-logo.svg' class='navIcon'></img>
-      </nav>
-    </header>
-    <main>
-      <div class="menuContainer">
-        <div class="menu">
-          <div class="linkContainer">
-          </div>
-          <div id="menuImg"></div>
-        </div> 
+
+<body>
+  <header>
+    <nav>
+      <div id="burgerIcon" class="burgerIcon">
+        <div></div>
       </div>
-        <h2 class="contact-title">Vous souhaitez nous contacter ?</h2>
-        <p class="contact-p">Envoyez-nous un message !</p>
-        <div class="ct-form">
-            <form class="contact-form" action="#" >
-                <label class="ct-label" for="name">NAME *</label>
-                <input class="ct-input" type="text" id="name" required>
-                <label class="ct-label" for="email">EMAIL *</label>
-                <input class="ct-input" type="email" id="email" required>
-                <label class="ct-label" for="phone">PHONE</label>
-                <input class="ct-input" type="number" id="phone" >
-                <label class="ct-label" for="message">YOUR MESSAGE*</label>
-                <textarea class="ct-input ct-input-txt" type="text" id="message" required></textarea>
-                <button class="ct-button" type="submit" id="btn-form">SEND</button>
-            </form>
+      <h1>- 4 Spirited Guys -</h1>
+      <img src='/images/icon-logo.svg' class='navIcon'></img>
+    </nav>
+  </header>
+  <main>
+    <div class="menuContainer">
+      <div class="menu">
+        <div class="linkContainer">
         </div>
-        <div class="hidden">
-          <div class="popMsg">
-            <h3>Thank you for your message!</h3>
-            <p>You will get an answer in few hours. Have a nice day!</p>
-          </div>
-        </div>
-    </main>
-    <script src="/scripts/contact.js"></script>
-  </body>
+        <div id="menuImg"></div>
+      </div>
+    </div>
+    <h2 class="contact-title">Vous souhaitez nous contacter ?</h2>
+    <p class="contact-p">Envoyez-nous un message !</p>
+    <div class="ct-form">
+      <form class="contact-form" action="#">
+        <label class="ct-label" for="name">NAME *</label>
+        <input class="ct-input" type="text" id="name" required>
+        <label class="ct-label" for="email">EMAIL *</label>
+        <input class="ct-input" type="email" id="email" required>
+        <label class="ct-label" for="phone">PHONE</label>
+        <input class="ct-input" type="number" id="phone" >
+        <label class="ct-label" for="message">YOUR MESSAGE*</label>
+        <textarea class="ct-input ct-input-txt" type="text" id="message" required></textarea>
+        <button class="ct-button" type="submit" id="btn-form">SEND</button>
+      </form>
+    </div>
+    <div class="hidden popin">
+      <div class="popMsg">
+        <h3>Thank you for your message!</h3>
+        <p>You will get an answer in few hours. Have a nice day!</p>
+      </div>
+    </div>
+  </main>
+  <script src="/scripts/contact.js"></script>
+</body>
+
 </html>

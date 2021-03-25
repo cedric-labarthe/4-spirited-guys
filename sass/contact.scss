@@ -1,7 +1,7 @@
 .contact-title {
     font-size: 1.4rem;
     text-align: center;
-    padding-top: 115px;
+    padding-top: 110px;
     font-weight: 400;
 }
 .contact-p {
@@ -11,7 +11,7 @@
 }
 .ct-form {
     position: relative;
-    margin: 25px 50px;
+    margin: 20px 50px;
     
     .contact-form {
         display: flex;
@@ -40,27 +40,26 @@
             cursor: pointer;
             font-size: 1.2rem;
             border-radius: 10px;
-            margin: 35px auto;
+            margin: 35px auto 0;
             padding: 10px 20px;
             border: solid 1px;
         }
     }
 }
 .popin {
-    position: absolute;
-    top: 30%;
-    background-color: #3A3D46;
-    margin: 30px;
+    position: fixed;
+    width: 95%;
+    background-color: rgba(31, 31, 31, 0.801);
+    left: 11px;
+    height: 84vh;
+    top: 13vh;
     border-radius: 2rem;
+    display: flex;
+    align-items: center;
 }
 .hidden {
     display: none;
     opacity: 0;
-}
-.popin {
-    display: block;
-    opacity: 1;
-    transition: all 1s ease-out;
 }
 
 .popMsg {
@@ -68,11 +67,36 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    padding: 45px 3px;
+    padding: 65px 15px;
+    background-color: #3A3D46;
+    margin: 0 15px;
+    border-radius: 2rem;
 
     h3, p {
         font-size: 22px;
-        margin: 25px 0px;
+        margin: 30px 0px;
         text-align: center;
     }
 }
+.popinOff {
+    //display: none;
+    visibility: hidden;
+  }
+
+  .popinOffEffect {
+    animation : 0.2s fadeout;
+  }
+
+  @keyframes fadeout {
+    from{opacity : 1;}
+    to{opacity : 0;}
+  }
+
+  .popinOnEffect {
+    animation : 0.4s fadein;
+  }
+
+  @keyframes fadein {
+    from{opacity : 0;}
+    to{opacity : 1;}
+  }
