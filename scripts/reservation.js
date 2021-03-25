@@ -122,7 +122,6 @@ var picker = {
           thisYear = today.getUTCFullYear(),
           months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
                     "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-  
       // (A3) MONTH SELECT
       var select = document.createElement("select"),
           option = null;
@@ -292,7 +291,7 @@ var picker = {
           }
           // ALLOWED TO CHOOSE THIS DAY
           else {
-            if (i == todayDate) { cell.classList.add("picker-d-td"); }
+            if (i == todayDate-1) { cell.classList.add("picker-d-td"); }
             cell.classList.add("picker-d-d");
             cell.addEventListener("click", function(){ picker.pick(this); });
           }
