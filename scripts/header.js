@@ -27,9 +27,15 @@ init = () => {
     if(card && card.length) {
       let navIcon = document.querySelector(".navIcon");
       navIcon.src = "../images/shopping-cart.png";
+      navIcon.addEventListener("mouseover", () => {
+        navIcon.src = "../images/shopping-cart-selected.png";
+      })
+      navIcon.addEventListener("mouseleave", () => {
+        navIcon.src = "../images/shopping-cart.png";
+      })
       navIcon.classList.add("clickable");
       navIcon.addEventListener("click", () => {
-        window.location = location.origin + "/index.html";
+        window.location = location.origin + "/cart.html";
       })
 
     }
