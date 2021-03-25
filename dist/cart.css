@@ -106,7 +106,7 @@
   top: 20vh;
   left: 15vw;
   width: 70vw;
-  height: 50vh;
+  height: 40vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -124,7 +124,7 @@
 }
 
 #popupContainer #popup span {
-  margin: 5vh 0 12vh 0;
+  margin: 5vh 0 8vh 0;
 }
 
 #popupContainer #popup .buttonContainer {
