@@ -23,9 +23,9 @@ init = () => {
     menu.addEventListener('click', (evt) => {clickOnMenuContainer(evt)});
 
     let card = JSON.parse(localStorage.getItem("cart"));
+    let navIcon = document.querySelector(".navIcon");
   
     if(card && card.length) {
-      let navIcon = document.querySelector(".navIcon");
       navIcon.src = "../images/shopping-cart.png";
       navIcon.addEventListener("mouseover", () => {
         navIcon.src = "../images/shopping-cart-selected.png";
@@ -37,7 +37,16 @@ init = () => {
       navIcon.addEventListener("click", () => {
         window.location = location.origin + "/cart.html";
       })
-
+    } else {
+      navIcon.addEventListener("click", () => {
+        window.location = location.origin + "/index.html";
+      })
+      navIcon.addEventListener("mouseover", () => {
+        navIcon.style.fill = "white";
+      })
+      navIcon.addEventListener("mouseleave", () => {
+        navIcon.style.fill = "#c09066";
+      })
     }
 }
 
