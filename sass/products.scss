@@ -9,6 +9,13 @@ main {
   color: $globalTextColor;
   text-align: center;
 
+  .page-title {
+    margin: 15vh 0 2vh 0;
+    font-family: 'Poiret One', cursive;
+    font-size: 1.5rem;
+    color: $goldColor;
+  }
+
   #footer {
     visibility: hidden;
     &.visible {
@@ -40,16 +47,21 @@ main {
 
   .product {
     padding-top: 2%;
+    padding-bottom: 6%;
+
+    .section-pres {
+      margin: 4%;
+    }
 
     .section-desc {
+      line-height: 100%;
       display: none;
     }
     .section__title {
-      margin: 8% 0 2% 0;
-      height: 12%;
+      margin: 8% 0 5% 0;
       font-family: 'Poiret One', cursive;
       text-decoration: underline;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       color: $goldColor;
     }
 
@@ -210,7 +222,7 @@ main {
         flex-direction: row-reverse;
       }
       .section-pres {
-        max-width: 30%;
+        max-width: 45%;
       }
       .section-desc {
         display: block;
@@ -220,11 +232,15 @@ main {
       }
       .swiper-container {
         height: auto;
-        width: 60%;
+        width: 80%;
+        padding-right: 2%;
       }
       .swiper-slide {
         height: auto;
-        width: 40%;
+        width: 30%;
+      }
+      .swiper-pagination {
+        bottom: 5%;
       }
     }
     .more-info-popin {

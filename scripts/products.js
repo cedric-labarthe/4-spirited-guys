@@ -63,6 +63,7 @@ init = () => {
   addToCartBtn = document.getElementsByClassName('more-info-popin__footer-add-btn')[0];
   addToCartBtn.addEventListener('click', () => addToCart(currentProduct));
   addToCartBtn.addEventListener('click', toggleOpenPopin);
+  document.getElementById('footer').className = 'visible';
 
   // Récuperation des images des carousels + liens avec le produit selectionné
   moreInfoBtn = document.getElementsByClassName('product__btn');
@@ -271,11 +272,8 @@ const swiperConf = {
       slidesPerView: 2,
       spaceBetween: 20,
     },
-    768: {
-      slidesPerView: 4,
-      spaceBetween: 40,
-    },
     1024: {
+      with: 40,
       effect: 'slide',
       slidesPerView: 3,
       centeredSlides: false,

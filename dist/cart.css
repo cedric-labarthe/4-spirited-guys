@@ -14,8 +14,18 @@
 
 #cartContainer .productContainer {
   width: 80vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   border: 2px #C09066 solid;
   margin-top: 3vh;
+  padding: 1vh;
 }
 
 #cartContainer .productContainer span {
@@ -36,16 +46,13 @@
       -ms-flex-align: center;
           align-items: center;
   color: #C09066;
-  padding: 1vh;
   width: 40px;
   height: 40px;
   font-size: 32px;
-  margin-left: auto;
 }
 
 #cartContainer .productContainer img {
-  width: 100%;
-  margin-top: 2vh;
+  width: 15%;
 }
 
 #validCard {
@@ -166,33 +173,25 @@
 }
 
 @media screen and (min-width: 500px) {
-  #cartContainer {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    margin-bottom: 5vh;
+  main h2 {
+    margin: 5vh 0 5vh 0;
   }
-  #cartContainer .productContainer {
-    width: 25vw;
-    border: 1px #C09066 solid;
-    margin: 5vh 5vh;
+  main .collect {
+    margin-top: 5vh;
+    font-size: 1.2rem;
+  }
+  #cartContainer {
+    margin-bottom: 0vh;
+  }
+  #cartContainer .productContainer span {
+    font-size: 2rem;
   }
   #cartContainer .productContainer img {
-    width: 100%;
-    margin-top: 2vh;
+    width: 4vw;
   }
   #validCard {
     width: 30%;
-    height: 5vh;
+    height: 10vh;
     border: 1px #C09066 solid;
     border-radius: 5px;
   }
