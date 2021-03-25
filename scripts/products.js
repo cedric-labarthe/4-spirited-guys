@@ -57,10 +57,10 @@ init = () => {
   popInImage = document.getElementById('popin__img');
   popInTitle = document.getElementsByClassName('more-info-popin__title')[0];
   popInDesc = document.getElementsByClassName('more-info-popin__desc')[0];
-  popInPrice = document.getElementsByClassName('more-info-popin__price')[0];
+  popInPrice = document.getElementsByClassName('more-info-popin__footer-price')[0];
   closePopinBtn = document.getElementById('close-popin');
   closePopinBtn.addEventListener('click', toggleOpenPopin);
-  addToCartBtn = document.getElementsByClassName('more-info-popin__add-btn')[0];
+  addToCartBtn = document.getElementsByClassName('more-info-popin__footer-add-btn')[0];
   addToCartBtn.addEventListener('click', () => addToCart(currentProduct));
   addToCartBtn.addEventListener('click', toggleOpenPopin);
 
