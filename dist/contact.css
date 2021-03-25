@@ -116,7 +116,7 @@
 .popin {
   position: fixed;
   width: 95%;
-  background-color: rgba(31, 31, 31, 0.801);
+  background-color: rgba(31, 31, 31, 0.9);
   left: 11px;
   height: 84vh;
   top: 13vh;
@@ -206,5 +206,48 @@
   }
   to {
     opacity: 1;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .section-contact {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 20vh;
+  }
+  .ct-form {
+    width: 50%;
+    margin: 0;
+  }
+  .contact-title {
+    padding-top: 95px;
+  }
+  .contact-title {
+    padding: 0;
+  }
+  .ct-form form {
+    max-width: 80%;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .iFrameContainer {
+    width: 50%;
+    height: 600px;
+    margin: 0;
+  }
+  .iFrameContainer h3 {
+    padding-bottom: 60px;
+  }
+  .iFrameContainer iframe {
+    margin: 0;
+    max-width: 80%;
+    width: 100%;
+  }
+  .popin {
+    width: 30%;
+    height: 55%;
+    top: 30%;
+    left: 35%;
   }
 }
