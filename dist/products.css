@@ -215,12 +215,18 @@ main .more-info-popin__footer {
       -ms-flex-pack: justify;
           justify-content: space-between;
   width: 100%;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
 }
 
 main .more-info-popin__footer-price {
+  padding: 10px 0;
   margin: 5%;
   -ms-flex-item-align: start;
       align-self: flex-start;
+  color: #c09066;
+  font-weight: bold;
 }
 
 main .more-info-popin__footer-add-btn {
@@ -281,10 +287,6 @@ main .more-info-popin .more-info-popin__close-btn .close-x {
   }
   main .more-info-popin {
     width: 40%;
-  }
-  main .more-info-popin button {
-    width: 40px;
-    height: 40px;
   }
 }
 
