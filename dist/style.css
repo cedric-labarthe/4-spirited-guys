@@ -199,6 +199,10 @@ header nav .burgerIcon.active div {
   background-size: cover;
 }
 
+.menu {
+  font-family: 'Poiret', sans-serif;
+}
+
 .open {
   left: 0;
 }
