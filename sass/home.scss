@@ -70,10 +70,13 @@ main {
     background-size: cover;
     background-position-y: -37px;
   }
-
+  .bottomPageLink a {
+    font-family: 'Poiret', sans-serif;
+  }
   .bottomPageLink {
     margin-bottom: 5vh;
     text-decoration: none;
+    
     &:hover {
       color: antiquewhite;
     }
@@ -113,6 +116,7 @@ main {
 
     .bottomPageLink {
       margin-bottom: 15vh;
+      
      
     }
   }

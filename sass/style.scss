@@ -11,6 +11,11 @@ p, span {
   font-family: 'Raleway', sans-serif;
 }
 
+a {
+  color: $globalTextColor;
+  font-family: 'Poiret', sans-serif;
+}
+
 button {
   background-color: $darkerMainColor;
   color: $goldColor;
@@ -153,6 +158,7 @@ header {
     color: $goldColor;
     padding-left: 20px;
     font-size: 1.1rem;
+    font-family: 'Poiret', sans-serif;
 
     &:hover {
       color: $globalTextColor;
@@ -168,7 +174,9 @@ header {
     background-size: cover;
   }
 }
-
+.menu {
+  font-family: 'Poiret', sans-serif;
+}
 .open {
   left: 0;
 }
