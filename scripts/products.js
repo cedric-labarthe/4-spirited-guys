@@ -75,7 +75,8 @@ init = () => {
   addToCartBtn.addEventListener('click', () => addToCart(currentProduct));
   addToCartBtn.addEventListener('click', toggleOpenPopin);
   addToCartBtn.addEventListener('click', addToCartMessage);
-  document.getElementById('footer').className = 'visible';
+  footer = document.getElementById('footer');
+  footer.remove('hidden');
 
   // Récuperation des images des carousels + liens avec le produit selectionné
   moreInfoBtn = document.getElementsByClassName('product__btn');
