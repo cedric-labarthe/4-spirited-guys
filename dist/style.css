@@ -1,4 +1,4 @@
-p {
+p, span {
   color: antiquewhite;
   font-family: 'Raleway', sans-serif;
 }
@@ -54,14 +54,13 @@ header nav {
       -ms-flex-align: center;
           align-items: center;
   font-family: 'Poiret One', cursive;
-  padding: 0 3% 0 5%;
+  padding: 0 2% 0 3%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
 
 header nav h1 {
   font-size: 1.7rem;
-  margin-left: 2%;
 }
 
 header nav .navIcon {

@@ -1,3 +1,7 @@
+main {
+  margin-bottom: 2vh;
+}
+
 .contact-title {
   font-size: 1.4rem;
   text-align: center;
@@ -115,29 +119,39 @@
 
 .popin {
   position: fixed;
-  width: 95%;
-  background-color: rgba(31, 31, 31, 0.801);
-  left: 11px;
-  height: 84vh;
-  top: 13vh;
-  border-radius: 2rem;
+  width: 100vw;
+  background-color: rgba(31, 31, 31, 0.9);
+  height: 90vh;
+  top: 10vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
 }
 
-.hidden {
-  display: none;
-  opacity: 0;
+.popin.show {
+  visibility: visible;
+}
+
+.popin.opacityMax {
+  opacity: 1;
 }
 
 .popMsg {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 80vw;
+  left: 10vw;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -159,52 +173,46 @@
   text-align: center;
 }
 
-.popinOff {
-  visibility: hidden;
-}
-
-.popinOffEffect {
-  -webkit-animation: 0.2s fadeout;
-          animation: 0.2s fadeout;
-}
-
-@-webkit-keyframes fadeout {
-  from {
-    opacity: 1;
+@media screen and (min-width: 500px) {
+  .section-contact {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 20vh;
   }
-  to {
-    opacity: 0;
+  .ct-form {
+    width: 50%;
+    margin: 0;
   }
-}
-
-@keyframes fadeout {
-  from {
-    opacity: 1;
+  .contact-title {
+    padding-top: 95px;
   }
-  to {
-    opacity: 0;
+  .contact-title {
+    padding: 0;
   }
-}
-
-.popinOnEffect {
-  -webkit-animation: 0.4s fadein;
-          animation: 0.4s fadein;
-}
-
-@-webkit-keyframes fadein {
-  from {
-    opacity: 0;
+  .ct-form form {
+    max-width: 80%;
+    width: 100%;
+    margin: 0 auto;
   }
-  to {
-    opacity: 1;
+  .iFrameContainer {
+    width: 50%;
+    height: 600px;
+    margin: 0;
   }
-}
-
-@keyframes fadein {
-  from {
-    opacity: 0;
+  .iFrameContainer h3 {
+    padding-bottom: 60px;
   }
-  to {
-    opacity: 1;
+  .iFrameContainer iframe {
+    margin: 0;
+    max-width: 80%;
+    width: 100%;
+  }
+  .popin {
+    width: 30%;
+    height: 55%;
+    top: 30%;
+    left: 35%;
+    border-radius: 1rem;
   }
 }

@@ -6,7 +6,7 @@ $globalTextColor: antiquewhite;
 //font-family: 'Poiret One', cursive; <= Header
 //font-family: 'Raleway', sans-serif; <= Body elements
 
-p {
+p, span {
   color: $globalTextColor;
   font-family: 'Raleway', sans-serif;
 }
@@ -53,12 +53,11 @@ header {
     justify-content: space-between;
     align-items: center;
     font-family: 'Poiret One', cursive;
-    padding: 0 3% 0 5%;
+    padding: 0 2% 0 3%;
     box-sizing: border-box;
 
     h1 {
       font-size: 1.7rem;
-      margin-left: 2%;
     }
 
     .navIcon {

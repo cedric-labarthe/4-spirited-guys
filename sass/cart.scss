@@ -6,15 +6,30 @@
 
     .productContainer {
         width: 80vw;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         border: 2px #C09066 solid;
         margin-top: 3vh;
+        padding: 1vh;
         
-        span {
-            line-height: 110%;
-            font-family: 'Poiret One', cursive;
-            font-size: 1.3rem;
-            color: #c09066;
+        .innerContainer {
+            width: 85%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            img {
+                width:15%;
+            }
+
+            span {
+                line-height: 110%;
+                font-family: 'Poiret One', cursive;
+                font-size: 1.3rem;
+                color: #c09066;
+            }
         }
+      
        
        
         .deleteButton {
@@ -22,17 +37,12 @@
             justify-content: center;
             align-items: center;
             color:#C09066;
-            padding: 1vh;
             width: 40px;
             height: 40px;
             font-size: 32px;
-            margin-left: auto;
         }
 
-        img {
-            width: 100%;
-            margin-top: 2vh;
-        }
+        
 
     }
 }
@@ -80,7 +90,7 @@
         top: 20vh;
         left: 15vw;
         width: 70vw;
-        height: 50vh;
+        height: 40vh;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -90,7 +100,7 @@
         text-align: center;
 
         span{
-            margin: 5vh 0 12vh 0;
+            margin: 5vh 0 8vh 0;
         }
         .buttonContainer {
             width: 87%;
@@ -128,28 +138,35 @@
 }
 
 @media screen and (min-width: 500px) {
-    #cartContainer {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        flex-wrap: wrap;
+    main {
+        h2 {
+            margin: 5vh 0 5vh 0;
+        }
+
+        .collect {
+            margin-top: 5vh;
+            font-size: 1.2rem;
+        }
+        
+    }
+   
+    #cartContainer {  
         margin-bottom: 0vh;
-    
         .productContainer {
-            width: 25vw;
-            border: 1px #C09066 solid;
-            margin: 5vh 5vh;
-           
+            width: 40vw;
+
+            span {
+                font-size: 2rem;
+            }
             img {
-                width: 100%;
-                margin-top: 2vh;
+               width: 4vw;
             }
         }
     }
 
     #validCard {
         width: 30%;
-        height: 5vh;
+        height: 10vh;
         border: 1px #C09066 solid;
         border-radius: 5px;
         &:hover {

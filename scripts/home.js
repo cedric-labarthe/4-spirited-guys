@@ -1,27 +1,13 @@
 let topVisible = false;
 let bottomVisible = true;
-let swiper =null;
 let iconScrolltest = null;
+
+    
 
 init = () => {
     document.addEventListener("scroll", handleScroll);
     iconScrolltest = document.getElementById("iconScrollTest");
-    if(window.location.pathname === "/index.html") {
-        swiper = new Swiper('.swiper-container', {
-            slidesPerView: 2,
-            spaceBetween: 30,
-            centeredSlides: true,
-            loop: true,
-            pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-            },
-            navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-            },
-        });
-    }
+    
 
     if(localStorage.getItem("cartOk") && window.location.pathname === "/index.html") {
         document.getElementById("purchaseOK").classList.add("present");
@@ -30,6 +16,29 @@ init = () => {
             localStorage.removeItem("cartOk")
         }, 2000);
     }
+
+if(window.location.pathname === "/index.html" || window.location.pathname === "/" || window.location.pathname === "./") {
+
+    let swiper = new Swiper('.swiper-container', {
+        init: false,
+        slidesPerView: 2,
+        spaceBetween: 30,
+        centeredSlides: true,
+        loop: true,
+        pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+        },
+        navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+        }
+    });
+
+
+    swiper.init();
+}
+
 }
 
 setScrollInfoVisibility = () => {
@@ -51,11 +60,6 @@ handleScroll = (e) => {
         topScrollInfo.classList.remove("infoVisible");
         topVisible = false;
     }
-
-    // if(isInViewport(iconScrolltest)) {
-    //     console.log(isInViewport(iconScrolltest))
-    //     console.log("lol")
-    // }
 
     if(!isInViewport(iconScrolltest) && !bottomVisible) {
         bottomScrollInfo.style.visibility = "visible";

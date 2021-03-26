@@ -14,11 +14,38 @@
 
 #cartContainer .productContainer {
   width: 80vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   border: 2px #C09066 solid;
   margin-top: 3vh;
+  padding: 1vh;
 }
 
-#cartContainer .productContainer span {
+#cartContainer .productContainer .innerContainer {
+  width: 85%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#cartContainer .productContainer .innerContainer img {
+  width: 15%;
+}
+
+#cartContainer .productContainer .innerContainer span {
   line-height: 110%;
   font-family: 'Poiret One', cursive;
   font-size: 1.3rem;
@@ -36,16 +63,9 @@
       -ms-flex-align: center;
           align-items: center;
   color: #C09066;
-  padding: 1vh;
   width: 40px;
   height: 40px;
   font-size: 32px;
-  margin-left: auto;
-}
-
-#cartContainer .productContainer img {
-  width: 100%;
-  margin-top: 2vh;
 }
 
 #validCard {
@@ -99,7 +119,7 @@
   top: 20vh;
   left: 15vw;
   width: 70vw;
-  height: 50vh;
+  height: 40vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -117,7 +137,7 @@
 }
 
 #popupContainer #popup span {
-  margin: 5vh 0 12vh 0;
+  margin: 5vh 0 8vh 0;
 }
 
 #popupContainer #popup .buttonContainer {
@@ -166,33 +186,28 @@
 }
 
 @media screen and (min-width: 500px) {
+  main h2 {
+    margin: 5vh 0 5vh 0;
+  }
+  main .collect {
+    margin-top: 5vh;
+    font-size: 1.2rem;
+  }
   #cartContainer {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
     margin-bottom: 0vh;
   }
   #cartContainer .productContainer {
-    width: 25vw;
-    border: 1px #C09066 solid;
-    margin: 5vh 5vh;
+    width: 40vw;
+  }
+  #cartContainer .productContainer span {
+    font-size: 2rem;
   }
   #cartContainer .productContainer img {
-    width: 100%;
-    margin-top: 2vh;
+    width: 4vw;
   }
   #validCard {
     width: 30%;
-    height: 5vh;
+    height: 10vh;
     border: 1px #C09066 solid;
     border-radius: 5px;
   }
