@@ -1,25 +1,23 @@
 let topVisible = false;
 let bottomVisible = true;
-let swiper =null;
 let iconScrolltest = null;
 
-if(window.location.pathname === "/index.html") {
-    swiper = new Swiper('.swiper-container', {
-        init: false,
-        slidesPerView: 2,
-        spaceBetween: 30,
-        centeredSlides: true,
-        loop: true,
-        pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-        },
-        navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-        }
-    });
-}
+let homeSwiper = new Swiper('.swiper-container', {
+    init: false,
+    slidesPerView: 2,
+    spaceBetween: 30,
+    centeredSlides: true,
+    loop: true,
+    pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+    },
+    navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+    }
+});
+
 
 init = () => {
     document.addEventListener("scroll", handleScroll);
@@ -33,7 +31,7 @@ init = () => {
             localStorage.removeItem("cartOk")
         }, 2000);
     }
-    swiper.init();
+    homeSwiper.init();
 }
 
 setScrollInfoVisibility = () => {
