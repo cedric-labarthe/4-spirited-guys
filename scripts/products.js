@@ -18,6 +18,14 @@ let classArray = [];
 let actualStorage = null;
 let currentProduct = null;
 
+if (localStorage.getItem('cartOk') && window.location.pathname === '/products.html') {
+  document.getElementById('addToCartOK').classList.add('present');
+  setTimeout(() => {
+    document.getElementById('addToCartOK').classList.remove('present');
+    localStorage.removeItem('cartOk');
+  }, 2000);
+}
+
 // Recuperation du JSON des produits
 fetchJsonProduct = () => {
   fetch('../products.json').then((response) =>
@@ -63,6 +71,7 @@ init = () => {
   addToCartBtn = document.getElementsByClassName('more-info-popin__footer-add-btn')[0];
   addToCartBtn.addEventListener('click', () => addToCart(currentProduct));
   addToCartBtn.addEventListener('click', toggleOpenPopin);
+  addToCartBtn.addEventListener('click', addToCartMessage);
   document.getElementById('footer').className = 'visible';
 
   // Récuperation des images des carousels + liens avec le produit selectionné
@@ -74,6 +83,14 @@ init = () => {
 
   window.onscroll = handleSwiperWithScroll;
   let initAutoplay = ['whisky', 'rhum', 'wine', 'tapas'].forEach((x) => startStopSlider(x, 'stop'));
+};
+
+addToCartMessage = () => {
+  document.getElementById('addToCartOK').classList.add('present');
+  setTimeout(() => {
+    document.getElementById('addToCartOK').classList.remove('present');
+    localStorage.removeItem('cartOk');
+  }, 2000);
 };
 
 handleSwiperWithScroll = () => {
