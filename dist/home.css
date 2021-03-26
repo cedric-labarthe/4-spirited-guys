@@ -67,6 +67,10 @@ main .mainBanner {
   background-position-y: -37px;
 }
 
+main .bottomPageLink a {
+  font-family: 'Poiret', sans-serif;
+}
+
 main .bottomPageLink {
   margin-bottom: 5vh;
   text-decoration: none;
