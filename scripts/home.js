@@ -8,6 +8,7 @@ init = () => {
     iconScrolltest = document.getElementById("iconScrollTest");
     if(window.location.pathname === "/index.html") {
         swiper = new Swiper('.swiper-container', {
+            init: false,
             slidesPerView: 2,
             spaceBetween: 30,
             centeredSlides: true,
@@ -30,6 +31,7 @@ init = () => {
             localStorage.removeItem("cartOk")
         }, 2000);
     }
+    swiper.init();
 }
 
 setScrollInfoVisibility = () => {
