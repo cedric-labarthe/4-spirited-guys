@@ -6,7 +6,7 @@ $globalTextColor: antiquewhite;
 //font-family: 'Poiret One', cursive; <= Header
 //font-family: 'Raleway', sans-serif; <= Body elements
 
-p {
+p, span {
   color: $globalTextColor;
   font-family: 'Raleway', sans-serif;
 }
