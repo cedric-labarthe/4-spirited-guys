@@ -14,13 +14,10 @@ function init() {
   inputMsg = document.getElementById("message");
   burger = document.getElementById("burgerIcon");
 
-  btn.addEventListener("click", popup);
-
-  popin.addEventListener("click", (evt) => {
-    clickOnPopinContainer(evt);
+  btn.addEventListener("click", (e) => {
+    popup();
+  e.preventDefault();
   });
-
-  burger.addEventListener("click", clickOnPopinContainer);
 }
 
 function popup() {
@@ -32,20 +29,11 @@ function popup() {
 function popMsg() {
   popin.classList.add("show");
   popin.classList.add("opacityMax");
-}
 
-
-closePopin = () => {
-  popin.classList.remove("opacityMax");
   setTimeout(() => {
-      popin.classList.remove("show");
-  }, 500);
-}
-
-clickOnPopinContainer = (e) => {
-  if(e.target === e.currentTarget) {
-      closePopin();
-  }
+    console.log("redirect")
+    window.location = "index.html";
+}, 2000);
 }
 
 window.addEventListener('load', init);
