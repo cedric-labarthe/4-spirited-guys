@@ -3,6 +3,11 @@ p {
   font-family: 'Raleway', sans-serif;
 }
 
+a {
+  color: antiquewhite;
+  font-family: 'Poiret', sans-serif;
+}
+
 button {
   background-color: #3a3d46;
   color: #c09066;
@@ -178,6 +183,7 @@ header nav .burgerIcon.active div {
   color: #c09066;
   padding-left: 20px;
   font-size: 1.1rem;
+  font-family: 'Poiret', sans-serif;
 }
 
 .menu a:hover {
